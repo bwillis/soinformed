@@ -24,7 +24,7 @@
       <file leaf-file-name="users_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="40" selection-start="170" selection-end="170" vertical-scroll-proportion="0.19433199">
+            <state line="2" column="47" selection-start="94" selection-end="94" vertical-scroll-proportion="0.06477733">
               <folding />
             </state>
           </provider>
@@ -526,7 +526,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="40" selection-start="170" selection-end="170" vertical-scroll-proportion="0.19433199">
+        <state line="2" column="47" selection-start="94" selection-end="94" vertical-scroll-proportion="0.06477733">
           <folding />
         </state>
       </provider>
