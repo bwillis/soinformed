@@ -24,7 +24,16 @@
       <file leaf-file-name="users_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="36" selection-start="384" selection-end="384" vertical-scroll-proportion="0.3562753">
+            <state line="29" column="33" selection-start="865" selection-end="865" vertical-scroll-proportion="0.9392713">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="http.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/net/http.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1062" column="8" selection-start="33280" selection-end="33280" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -524,9 +533,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/net/http.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1062" column="8" selection-start="33280" selection-end="33280" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="36" selection-start="384" selection-end="384" vertical-scroll-proportion="0.3562753">
+        <state line="29" column="33" selection-start="865" selection-end="865" vertical-scroll-proportion="0.9392713">
           <folding />
         </state>
       </provider>
