@@ -5,7 +5,9 @@ FoursquareSpeed::Application.routes.draw do
       get 'callback'
     end
   end
-  
+
+  resource :users, :only => :update
+
   resources :examples do
     collection do
       get 'user'
