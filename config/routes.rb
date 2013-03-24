@@ -6,7 +6,7 @@ FoursquareSpeed::Application.routes.draw do
     end
   end
 
-  resource :users, :only => :update
+  match "users/" => "users#update"
 
   resources :examples do
     collection do
