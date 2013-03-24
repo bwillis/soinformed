@@ -24,7 +24,7 @@
       <file leaf-file-name="users_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="71" selection-start="168" selection-end="168" vertical-scroll-proportion="0.16194332">
+            <state line="13" column="61" selection-start="499" selection-end="499" vertical-scroll-proportion="0.42105263">
               <folding />
             </state>
           </provider>
@@ -42,7 +42,7 @@
       <file leaf-file-name="application.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="43" selection-start="242" selection-end="259" vertical-scroll-proportion="0.0">
+            <state line="5" column="2" selection-start="171" selection-end="185" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -500,13 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="43" selection-start="242" selection-end="259" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="16" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
@@ -542,9 +535,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="2" selection-start="171" selection-end="185" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="71" selection-start="168" selection-end="168" vertical-scroll-proportion="0.16194332">
+        <state line="13" column="61" selection-start="499" selection-end="499" vertical-scroll-proportion="0.42105263">
           <folding />
         </state>
       </provider>
