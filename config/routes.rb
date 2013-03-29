@@ -1,19 +1,18 @@
 FoursquareSpeed::Application.routes.draw do
-  
-  resources :phone_numbers
 
-
-  resource :session do
+  resource :session, :only => [:destroy] do
     collection do
       get 'callback'
     end
   end
 
-  resource :users, :only => :update
+  resources :phone_numbers
+
   match "users/foursquare" => "users#foursquare_update"
 
   get "privacy" => "home#privacy"
   get "about" => "home#about"
+  get "edit" => "home#edit"
 
   #resources :examples do
   #  collection do
