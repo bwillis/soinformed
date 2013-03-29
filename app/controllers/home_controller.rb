@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @authorize_url = foursquare.authorize_url(callback_session_url)
+    @authorize_url = foursquare_authorize_url
   end
 
   def privacy

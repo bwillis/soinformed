@@ -13,21 +13,22 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      return nil if session[:access_token].blank?
+      return nil if session[:user_id].blank?
       begin
-        foursquare = Foursquare::Base.new(session[:access_token])
-        @current_user ||= foursquare.users.find("self")
+        user = User.find(session[:user_id])
+        user.test_auth_token
+        @current_user ||= user
       rescue Foursquare::InvalidAuth
         nil
       end
     end
 
+    def foursquare_authorize_url
+      @authorize_url ||= foursquare.authorize_url(callback_session_url)
+    end
+
     def foursquare
-      if current_user
-        @foursquare ||= Foursquare::Base.new(session[:access_token])
-      else
-        @foursquare ||= Foursquare::Base.new(Settings.app_id, Settings.app_secret)
-      end
+      @foursquare ||= Foursquare::Base.new(Settings.app_id, Settings.app_secret)
     end
 
     def verify_foursquare_push_secret
