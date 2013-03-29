@@ -35,7 +35,7 @@ module FoursquareSpeed
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
+    config.assets.precompile = [ Proc.new{ |path| !File.extname(path).in?(['.js', '.css']) }, /application.(css|js)$/ ]
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

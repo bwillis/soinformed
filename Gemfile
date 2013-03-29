@@ -33,10 +33,13 @@ gem "jquery-rails"
 #   gem 'webrat'
 # end
 
+gem 'sass-rails'
+gem 'bootstrap-sass'
+gem 'compass-rails'
+gem 'uglifier'
+
 gem "settingslogic"
 gem "haml"
 gem "json"
 gem "typhoeus"
 gem "quimby"
-
-gem "twitter-bootstrap-rails"
