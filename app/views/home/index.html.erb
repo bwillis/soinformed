@@ -1,0 +1,19 @@
+<ol>
+  <li>
+
+  </li>
+  <li>
+    Add a number
+    <% if @user %>
+      <%= form_for @user do |f| %>
+        <%= f.text :phone_number_1, :disabled => current_user.blank? %>
+      <% end %>
+    <% else %>
+      <input type="text" placeholder="(415) 867-5309" disabled="true"/>
+    <% end %>
+  </li>
+  <li>
+    Checkin like normal. Your friends are notified through SMS
+  </li>
+</ol>
+

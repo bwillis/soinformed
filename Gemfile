@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,6 +8,7 @@ gem 'rails', '3.0.3'
 gem 'pg'
 gem 'heroku'
 gem 'twilio-ruby'
+gem "jquery-rails"
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -36,5 +37,6 @@ gem "settingslogic"
 gem "haml"
 gem "json"
 gem "typhoeus"
+gem "quimby"
 
-# gem "quimby"
+gem "twitter-bootstrap-rails"

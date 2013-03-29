@@ -1,22 +1,29 @@
 FoursquareSpeed::Application.routes.draw do
   
+  resources :phone_numbers
+
+
   resource :session do
     collection do
       get 'callback'
     end
   end
 
-  match "users/" => "users#update"
+  resource :users, :only => :update
+  match "users/foursquare" => "users#foursquare_update"
 
-  resources :examples do
-    collection do
-      get 'user'
-      get 'checkins'
-      get 'friends'
-      get 'venues_search'
-      get 'venue_details'
-    end
-  end
+  get "privacy" => "home#privacy"
+  get "about" => "home#about"
+
+  #resources :examples do
+  #  collection do
+  #    get 'user'
+  #    get 'checkins'
+  #    get 'friends'
+  #    get 'venues_search'
+  #    get 'venue_details'
+  #  end
+  #end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -67,7 +74,7 @@ FoursquareSpeed::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "sessions#new"
+  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 

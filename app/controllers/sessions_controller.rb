@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
     code = params[:code]
     @access_token = foursquare.access_token(code, callback_session_url)
     session[:access_token] = @access_token
-    
-    redirect_to examples_path
+    User.create_or_update_by_foursquare_user(current_user, @access_token)
+    redirect_to user_path
   end
   
 end
