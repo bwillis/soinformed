@@ -4,7 +4,7 @@ module ContactsHelper
     c = case notify_state
       when :only_mention
         content_tag(:i, "", :class => "icon-comment") +
-            content_tag(:span, "#mentioned")
+            content_tag(:span, "#mention")
       when :"6_hours"
         content_tag(:i, "", :class => "icon-time") +
             content_tag(:span, "6 hours")
