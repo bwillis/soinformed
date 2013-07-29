@@ -1,0 +1,30 @@
+<%= form_for(@contact, :html => {:class => "well"}) do |f| %>
+  <div style="padding:0;margin:0;display:inline;"><%= f.hidden_field :notify_state %></div>
+
+  <% if @contact.persisted? %>
+    <%= link_to @contact, class: "delete-contact btn btn-default btn-small", method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="icon-remove"></i>
+    <% end %>
+  <% end %>
+
+  <%= errors_helper @contact %>
+
+  <div class="input-group">
+    <span class="input-group-addon input-large"><i class="icon-user"></i></span>
+    <%= f.text_field :name, :class => "form-control input-large", :placeholder => "name" %>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon input-large"><i class="icon-phone"></i></span>
+    <%= f.text_field :phone_number, :class => "input-large", :placeholder => "555-555-5555" %>
+  </div>
+
+  <div class="btn-group btn-group-justified" data-toggle-name="contact[notify_state]" data-toggle="buttons-radio">
+  <% Contact::NOTIFY_STATES.each do |notify_value| %>
+      <%= notify_state_button notify_value %>
+  <% end %>
+  </div>
+
+  <%= f.submit @contact.persisted? ? "Save" : "Create", :class => "btn btn-large btn-default btn-block" %>
+
+<% end %>

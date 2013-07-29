@@ -1,0 +1,3 @@
+<% current_user.contacts.each do |contact| %>
+  <%= render :partial => "contacts/form", :locals => {:@contact => contact} %>
+<% end %>

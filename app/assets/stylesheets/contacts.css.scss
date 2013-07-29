@@ -1,0 +1,38 @@
+// Place all the styles related to the contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$mint: #D1F2A5;
+$sherbert: #FFC48C;
+$watermelon: #F56991;
+
+.btn-large-icon {
+  span {
+    font-size: 0.8em;
+    line-height: 1.2;
+    display: block;
+    padding-top: 5px;
+  }
+  [class^="icon-"],
+  [class*=" icon-"] {
+    font-size: 1.5em;
+  }
+}
+.btn-notify-state {
+  .icon-heart {
+    color: $watermelon;
+  }
+}
+
+form {
+  position:relative;
+  .input-group, .btn-group {
+    margin-bottom: 10px;
+  }
+  .delete-contact {
+    position:absolute;
+    top:-1px;
+    right:-1px;
+  }
+}
+
+

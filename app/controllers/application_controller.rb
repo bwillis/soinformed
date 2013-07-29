@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
 
     def current_user
       return nil if session[:user_id].blank?
-      begin
+      @current_user ||= begin
         user = User.find(session[:user_id])
         user.test_auth_token
-        @current_user ||= user
+        user
       rescue Foursquare::InvalidAuth
         nil
       end

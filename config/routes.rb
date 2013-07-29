@@ -1,5 +1,8 @@
 FoursquareSpeed::Application.routes.draw do
 
+  resources :contacts
+
+
   resource :session, :only => [:destroy] do
     collection do
       get 'callback'

@@ -1,19 +1,5 @@
-<ol>
-  <li>
+<h2>Hey Foursquare user!</h2>
 
-  </li>
-  <li>
-    Add a number
-    <% if @user %>
-      <%= form_for @user do |f| %>
-        <%= f.text :phone_number_1, :disabled => current_user.blank? %>
-      <% end %>
-    <% else %>
-      <input type="text" placeholder="(415) 867-5309" disabled="true"/>
-    <% end %>
-  </li>
-  <li>
-    Checkin like normal. Your friends are notified through SMS
-  </li>
-</ol>
-
+<p>
+  This is an easy way to keep those non-Foursquare friends of yours up to date on what you're doing!
+</p>

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :phone_numbers
+  has_many :contacts
 
   def self.find_or_create_by_foursquare_user(token)
     foursquare = Foursquare::Base.new(token)
