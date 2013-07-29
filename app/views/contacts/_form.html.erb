@@ -2,7 +2,7 @@
   <div style="padding:0;margin:0;display:inline;"><%= f.hidden_field :notify_state %></div>
 
   <% if @contact.persisted? %>
-    <%= link_to @contact, class: "delete-contact btn btn-default btn-small", method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <%= link_to @contact, class: "delete-contact btn btn-default btn-small", method: :delete, data: { confirm: 'Are you sure you want to delete this contact?' } do %>
       <i class="icon-remove"></i>
     <% end %>
   <% end %>
