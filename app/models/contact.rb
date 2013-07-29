@@ -19,7 +19,7 @@ class Contact < ActiveRecord::Base
         false
       when :only_mention
         return false unless checkin_message
-        checkin_message =~ checkin_name
+        checkin_message.downcase.include? checkin_name.downcase
       when :always
         true
       when :"6_hours"
