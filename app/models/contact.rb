@@ -19,7 +19,7 @@ class Contact < ActiveRecord::Base
         false
       when :only_mention
         return false unless checkin_message
-        checkin_message.downcase.include? checkin_name.downcase
+        checkin_message.downcase.include?("##{name}".downcase) || checkin_message.downcase.include?("@#{name}".downcase)
       when :always
         true
       when :"6_hours"
@@ -32,10 +32,6 @@ class Contact < ActiveRecord::Base
   def notify_state=(val)
     update_notify_state_time
     super(val)
-  end
-
-  def checkin_name
-    "##{name}"
   end
 
   private
