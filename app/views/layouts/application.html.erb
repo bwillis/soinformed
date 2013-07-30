@@ -20,15 +20,8 @@
     <%= render :template => "shared/navbar" %>
 
     <div class="container">
-      <div class="row">
-        <div class="span9">
-
-          <%= flash_banner %>
-
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
+      <%= flash_banner %>
+      <%= yield %>
       <footer>
         <p>&copy; Company 2013</p>
       </footer>

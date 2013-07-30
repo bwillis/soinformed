@@ -1,3 +1,7 @@
-<% current_user.contacts.each do |contact| %>
-  <%= render :partial => "contacts/form", :locals => {:@contact => contact} %>
-<% end %>
+<div class="row">
+  <div class="col-lg-8 col-offset-2">
+    <% current_user.contacts.each do |contact| %>
+        <%= render :partial => "contacts/form", :locals => {:@contact => contact} %>
+    <% end %>
+  </div>
+</div>

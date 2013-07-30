@@ -1,0 +1,13 @@
+// override bootstrap's super wide grid
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 850px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .btn-notify-state {
+    padding: 8px 13px;
+    font-size: 15px;
+  }
+}
