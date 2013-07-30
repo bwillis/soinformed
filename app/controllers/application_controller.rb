@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_user
-  helper_method :foursquare_authorize_url
+  helper_method :login_path
 
   private
 
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def foursquare_authorize_url
+    def login_path
       @authorize_url ||= foursquare.authorize_url(callback_session_url)
     end
 

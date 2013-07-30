@@ -23,7 +23,7 @@
         <% if current_user %>
           Welcome <%= current_user.name %>! (<%= link_to "not you?", session_path, :method => :delete, :class => "navbar-link" %>)
         <% else %>
-          <%= link_to image_tag("connect-blue@2x.png", :size => "180x30"), foursquare_authorize_url %>
+          <%= link_to image_tag("connect-blue@2x.png", :size => "180x30"), login_path %>
         <% end %>
       </p>
     </div>
