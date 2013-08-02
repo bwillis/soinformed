@@ -1,10 +1,11 @@
 module SoInformed
   class SmsWorker
-    def start(message, numbers)
+    def process(message, numbers)
+      numbers = Array.wrap(numbers) unless numbers.is_a?(Array)
       numbers.each do |number|
         begin
           client.account.sms.messages.create(
-              :from => '+14158133341',
+              :from => Settings.twilio_from_number,
               :to   => '+' + number,
               :body => message
           )
