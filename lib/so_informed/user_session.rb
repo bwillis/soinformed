@@ -13,6 +13,8 @@ module SoInformed
         user
       rescue Foursquare::InvalidAuth
         nil
+      rescue
+        nil
       end
     end
 
