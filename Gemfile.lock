@@ -85,6 +85,7 @@ GEM
     mime-types (1.21)
     multi_json (1.7.2)
     netrc (0.7.7)
+    newrelic_rpm (3.6.6.147)
     pg (0.14.1)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
@@ -162,6 +163,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   json
+  newrelic_rpm
   pg
   quiet_assets
   quimby
