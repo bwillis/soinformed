@@ -2,7 +2,7 @@ FoursquareSpeed::Application.routes.draw do
 
   resources :contacts
   resources :phone_numbers
-  resources :foursquare_checkin, :only => [:create]
+  resources :foursquare_checkins, :only => [:create]
 
   resource :session, :only => [:destroy] do
     collection do

@@ -31,7 +31,7 @@ module SoInformed
     private
 
     def foursquare
-      @foursquare ||= Foursquare::Base.new(Settings.app_id, Settings.app_secret)
+      @foursquare ||= ::Foursquare::Base.new(Settings.app_id, Settings.app_secret)
     end
 
   end

@@ -1,7 +1,7 @@
-class FoursquareCheckinController < ApplicationController
+class FoursquareCheckinsController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :only => :foursquare_update
-  before_filter :verify_foursquare_push_secret, :only => :foursquare_update
+  skip_before_filter :verify_authenticity_token, :only => :create
+  before_filter :verify_foursquare_push_secret, :only => :create
 
   def create
     # parsing
