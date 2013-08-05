@@ -1,6 +1,6 @@
 class FoursquareCheckinsController < ApplicationController
 
-  skip_before_filter :ensure_authenticate_user
+  skip_before_filter :ensure_authenticated_user
   skip_before_filter :verify_authenticity_token, :only => :create
   before_filter :verify_foursquare_push_secret, :only => :create
 

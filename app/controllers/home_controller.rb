@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  skip_before_filter :ensure_authenticate_user
+  skip_before_filter :ensure_authenticated_user
 
   def index
 

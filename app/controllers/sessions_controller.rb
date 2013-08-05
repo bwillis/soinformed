@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  skip_before_filter :ensure_authenticate_user, :only => :callback
+  skip_before_filter :ensure_authenticated_user, :only => :callback
 
   def callback
     user_session.authenticate(params[:code])
