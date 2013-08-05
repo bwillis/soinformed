@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
     user.token = token
     user.name = "#{foursquare_user.json["firstName"]} #{foursquare_user.json["lastName"][0]}"
     user.save!
+    user
   end
 
   def test_auth_token
