@@ -9,12 +9,8 @@ class User < ActiveRecord::Base
     user = find_by_uid(uid) || User.new
     user.uid = uid
     user.token = token
+    user.name = "#{foursquare_user.json["firstName"]} #{foursquare_user.json["lastName"][0]}"
     user.save!
-    user
-  end
-
-  def name
-    "#{foursquare_user.json["firstName"]} #{foursquare_user.json["lastName"][0]}"
   end
 
   def test_auth_token
