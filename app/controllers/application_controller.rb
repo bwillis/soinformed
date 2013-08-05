@@ -18,7 +18,11 @@ class ApplicationController < ActionController::Base
   end
 
   def user_session
-    @user_session ||= SoInformed::UserSession.new(session, callback_session_url)
+    @user_session ||= if Rails.env.development?
+      SoInformed::UserDevSession.new(session, callback_session_url)
+    else
+      SoInformed::UserSession.new(session, callback_session_url)
+    end
   end
 
   def ensure_authenticate_user

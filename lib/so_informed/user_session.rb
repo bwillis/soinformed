@@ -8,9 +8,7 @@ module SoInformed
     def user
       return nil if @session[:user_id].blank?
       @current_user ||= begin
-        user = User.find(@session[:user_id])
-        user.test_auth_token
-        user
+        User.find(@session[:user_id])
       rescue Foursquare::InvalidAuth
         nil
       rescue
@@ -19,7 +17,7 @@ module SoInformed
     end
 
     def authenticated?
-      user.present?
+      user.present? && user.test_auth_token
     end
 
     def authenticate(code)
