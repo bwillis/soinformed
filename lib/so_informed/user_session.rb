@@ -9,8 +9,6 @@ module SoInformed
       return nil if @session[:user_id].blank?
       @current_user ||= begin
         User.find(@session[:user_id])
-      rescue Foursquare::InvalidAuth
-        nil
       rescue
         nil
       end
