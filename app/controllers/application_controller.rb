@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :authentication_path
 
+  prepend_before_filter :ensure_authenticate_user
+
   private
 
   def current_user
@@ -17,5 +19,12 @@ class ApplicationController < ActionController::Base
 
   def user_session
     @user_session ||= SoInformed::UserSession.new(session, callback_session_url)
+  end
+
+  def ensure_authenticate_user
+    unless user_session.authenticated?
+      flash[:error] = "You need to login to do that."
+      redirect_to root_path
+    end
   end
 end

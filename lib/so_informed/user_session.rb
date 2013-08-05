@@ -18,6 +18,10 @@ module SoInformed
       end
     end
 
+    def authenticated?
+      user.present?
+    end
+
     def authenticate(code)
       access_token = foursquare.access_token(code, @callback)
       user = User.find_or_create_by_foursquare_user(access_token)
