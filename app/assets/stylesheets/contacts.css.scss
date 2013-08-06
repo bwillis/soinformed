@@ -1,9 +1,6 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$mint: #D1F2A5;
-$sherbert: #FFC48C;
-$watermelon: #F56991;
 
 .btn-large-icon {
   span {
@@ -17,10 +14,24 @@ $watermelon: #F56991;
     font-size: 1.5em;
   }
 }
-.btn-notify-state {
+.btn-notify-state.active {
+  .icon-ban-circle {
+   color: $sherbert;
+  }
+  .icon-comment {
+    color: $sherbert;
+  }
+  .icon-time {
+    color: $sherbert;
+  }
   .icon-heart {
     color: $watermelon;
   }
+}
+
+.input-group-addon {
+  background-color: darken($beige, 10);
+  color: #777;
 }
 
 form {
@@ -34,5 +45,6 @@ form {
     right:-1px;
   }
 }
+
 
 

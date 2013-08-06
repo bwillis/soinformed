@@ -1,1 +1,33 @@
-$fontAwesomePath: "../assets/";
+$font-path: "../assets/";
+$fontAwesomePath: $font-path;
+
+@font-face {
+  font-family: 'Junction';
+  src: url('#{$font-path}/Junction-webfont.eot');
+  src: url('#{$font-path}/Junction-webfont.eot?#iefix') format("embedded-opentype"),
+    url('#{$font-path}/Junction-webfont.woff') format("woff"),
+    url('#{$font-path}/Junction-webfont.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$grapefruit: #FF8562;
+$orange: #FFA861;
+$beige: #FFFDEC;
+$mint: #98D5B4;
+$green: #CBE58E;
+$blue: #64C6DA;
+$watermelon: #F56991;
+$sherbert: #FFC48C;
+
+$font-family-sans-serif:  Junction, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+
+$body-bg: lighten($beige, 1.5);
+//$navbar-color: $yellow;
+
+$navbar-bg: lighten($blue, 20);
+$well-bg: darken($beige, 2);
+
+$btn-default-bg: lighten($blue, 10);
+$btn-primary-bg: darken($blue, 15);
