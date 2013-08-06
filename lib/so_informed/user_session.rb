@@ -28,6 +28,10 @@ module SoInformed
       @authorize_url ||= foursquare.authorize_url(@callback)
     end
 
+    def admin?
+      false
+    end
+
     private
 
     def foursquare

@@ -4,6 +4,10 @@ FoursquareSpeed::Application.routes.draw do
   resources :phone_numbers
   resources :foursquare_checkins, :only => [:create]
 
+  namespace :admin do
+    resources :settings
+  end
+
   resource :session, :only => [:destroy] do
     collection do
       get 'callback'

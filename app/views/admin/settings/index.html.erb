@@ -1,0 +1,12 @@
+<h1>Admin Settings</h1>
+
+<%= form_for(:settings, :html => {:class => "well"}) do |f| %>
+
+  <div class="checkbox">
+    <label>Dev session enabled?</label>
+    <%= check_box_tag :dev_session_enabled, true, dev_session_enabled?, {:class => "form-control"} %>
+  </div>
+
+  <%= f.submit "Save" %>
+
+<% end %>

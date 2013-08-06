@@ -12,5 +12,9 @@ module SoInformed
     def authentication_path
       @callback
     end
+
+    def admin?
+      authenticated?
+    end
   end
 end
