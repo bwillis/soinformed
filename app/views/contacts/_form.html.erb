@@ -14,7 +14,7 @@
 
   <div class="input-group">
     <span class="input-group-addon input-large"><i class="icon-phone"></i></span>
-    <%= f.telephone_field :phone_number, :class => "input-large", :value => number_to_phone(contact.phone_number), :placeholder => "15555555555" %>
+    <%= f.telephone_field :phone_number, :class => "input-large", :value => number_to_phone(contact.phone_number), :placeholder => number_to_phone("5555555555") %>
   </div>
 
   <div class="btn-group btn-group-justified" data-toggle-name="contact[notify_state]" data-toggle="buttons-radio">
