@@ -1,7 +1,6 @@
 class ContactsController < ApplicationController
   def index
     current_user.contacts.build
-    @contacts = current_user.contacts
   end
 
   def create
@@ -10,8 +9,8 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contacts_path, notice: 'Contact was successfully created.'
     else
-      @contacts = current_user.contacts
-      render :index, alert: model_alert(@contact)
+      flash[:alert] = model_alert(@contact)
+      render :index
     end
   end
 
@@ -21,8 +20,9 @@ class ContactsController < ApplicationController
     if @contact.update_attributes(params[:contact])
       redirect_to contacts_path, notice: 'Contact was successfully updated.'
     else
-      @contacts = current_user.contacts
-      render :index, alert: model_alert(@contact)
+      current_user.contacts.build
+      flash[:alert] = model_alert(@contact)
+      render :index
     end
   end
 
