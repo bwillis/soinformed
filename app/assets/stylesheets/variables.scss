@@ -2,31 +2,72 @@ $font-path: "../assets/";
 $fontAwesomePath: $font-path;
 
 @font-face {
-  font-family: 'Junction';
-  src: url('#{$font-path}/Junction-webfont.eot');
-  src: url('#{$font-path}/Junction-webfont.eot?#iefix') format("embedded-opentype"),
-    url('#{$font-path}/Junction-webfont.woff') format("woff"),
-    url('#{$font-path}/Junction-webfont.ttf') format("truetype");
+  font-family: 'Ostrich';
+  src: url('#{$font-path}/ostrich-bold.eot');
+  src: url('#{$font-path}/ostrich-bold.eot?#iefix') format("embedded-opentype"),
+    url('#{$font-path}/ostrich-bold.woff') format("woff"),
+    url('#{$font-path}/ostrich-bold.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Ostrich';
+  src: url('#{$font-path}/ostrich-black.eot');
+  src: url('#{$font-path}/ostrich-black.eot?#iefix') format("embedded-opentype"),
+    url('#{$font-path}/ostrich-black.woff') format("woff"),
+    url('#{$font-path}/ostrich-black.ttf') format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+  -moz-animation:    $animation;
+  -o-animation:      $animation;
+  animation:         $animation;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
 $grapefruit: #FF8562;
 $orange: #FFA861;
-$beige: #FFFDEC;
+$beige: #FEF5E4;
 $mint: #98D5B4;
 $green: #CBE58E;
 $blue: #64C6DA;
 $watermelon: #F56991;
 $sherbert: #FFC48C;
 
-$font-family-sans-serif:  Junction, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
-$body-bg: lighten($beige, 1.5);
+$body-bg: lighten($beige, 2);
 //$navbar-color: $yellow;
 
-$navbar-bg: lighten($blue, 20);
+$navbar-bg:                        $orange;
+$navbar-color:                     #FFF;
+$navbar-link-color:                #FFF;
+$navbar-link-hover-color:          darken($orange, 20);
+$navbar-link-hover-bg:             lighten($orange, 20);
+$navbar-link-active-color:         darken($orange, 25);
+$navbar-link-active-bg:            lighten($orange, 20);
+$navbar-brand-hover-color:         lighten($orange, 25);
+$navbar-brand-hover-bg:            transparent;
+
 $well-bg: darken($beige, 2);
 
 $btn-default-bg: lighten($blue, 10);

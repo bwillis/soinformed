@@ -1,8 +1,124 @@
 h1 {
+  font-family: Ostrich, $font-family-base;
   font-weight: bold;
 }
 
-.home-page {
+.well {
+  .input-group input, .input-group-addon {
+    border-color: darken($beige, 20);
+  }
+}
+
+.navbar-brand {
+  font-family: Ostrich, $font-family-base;
+  font-size: 40px;
+  padding-bottom: 5px;
+  line-height: 30px;
+}
+.navbar-text {
+  color: lighten($orange, 20);
+}
+$iphone-width: 210*1.5px;
+.bg-home {
+  .iphone {
+    display: inline-block;
+    height: 284*1.5px;
+    width: $iphone-width;
+    position: relative;
+    &.checkin-screen {
+      background: image-url("checkin-screen.png") scroll no-repeat 0 0;
+      background-size: 100%;
+    }
+    &.msg-screen {
+      background: image-url("msg-screen.png") scroll no-repeat 0 0;
+      background-size: 100%;
+    }
+  }
+  .outgoing-msg {
+    position: absolute;
+    top: 175px;
+    left: 45px;
+    color: #AAA;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @include animation(type-msg 10s 3s infinite ease-in );
+  }
+  .fq-checkin-btn {
+    width: 250px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -125px;
+    background-color: #b0d900;
+    color: #FFF;
+    text-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    border: none;
+
+    @include animation(checkin-btn-press 10s 3s infinite ease-in );
+  }
+  .dash-line-wrapper {
+    display: inline-block;
+    width: 150px;
+    height: 100px;
+    margin: 10px;
+  }
+  .dash-line {
+    height: 2px;
+    border-top: 2px dotted #AAA;
+    width: 0;
+
+    @include animation(msg-travel 10s 3s infinite ease-out);
+  }
+  .incoming-msg {
+    position: absolute;
+    top: 162px;
+    left: 27px;
+    background: image-url("msg.png") scroll no-repeat 0 0;
+    background-size: 100%;
+    height: 100px;
+    width: 182px;
+    opacity: 0;
+
+    @include animation(incoming-msg-appear 10s 3s infinite);
+  }
+}
+
+@include keyframes(type-msg) {
+  0%, 90% {
+    width: 0;
+  }
+  20%, 89% {
+    width: 200px;
+  }
+}
+
+@include keyframes(checkin-btn-press) {
+  0%, 20%, 26% {
+    background-color: #b0d900;
+  }
+  23% {
+    background-color: darken(#b0d900, 30);
+  }
+}
 
 
+@include keyframes(msg-travel) {
+  0%, 26%, 90% {
+    width: 0;
+  }
+  32%, 89% {
+    width: 100%;
+  }
+}
+
+@include keyframes(incoming-msg-appear) {
+  0%, 32%, 90% {
+    opacity: 0;
+  }
+  35%, 89% {
+    opacity: 1;
+  }
 }
