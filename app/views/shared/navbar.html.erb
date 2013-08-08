@@ -3,23 +3,18 @@
 
     <%= link_to "SO Informed", root_path, :class => "navbar-brand" %>
 
+    <% if current_user %>
     <div class="nav-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
-        <% if current_user %>
         <li><%= link_to "Contacts", contacts_path %></li>
-        <% end %>
         <% if admin? %>
         <li><%= link_to "Admin Settings", admin_settings_path %></li>
         <% end %>
       </ul>
 
-
-      <% if current_user %>
       <p class="navbar-text navbar-login-message">
         Welcome <%= current_user.name %>! (<%= link_to "not you?", session_path, :method => :delete, :class => "navbar-link" %>)
       </p>
-      <% end %>
-
     </div>
 
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -27,6 +22,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
+    <% end %>
 
   </div>
 </div>
