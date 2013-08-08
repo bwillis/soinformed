@@ -10,7 +10,8 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contacts_path, notice: 'Contact was successfully created.'
     else
-      redirect_to contacts_path, alert: model_alert(@contact)
+      @contacts = current_user.contacts
+      render :index, alert: model_alert(@contact)
     end
   end
 
@@ -20,7 +21,8 @@ class ContactsController < ApplicationController
     if @contact.update_attributes(params[:contact])
       redirect_to contacts_path, notice: 'Contact was successfully updated.'
     else
-      redirect_to contacts_path, alert: model_alert(@contact)
+      @contacts = current_user.contacts
+      render :index, alert: model_alert(@contact)
     end
   end
 

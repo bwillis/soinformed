@@ -1,13 +1,11 @@
-<%= form_for(@contact, :html => {:class => "well"}) do |f| %>
+<% if !contact.persisted? %>
+  <h3 class="section-heading">Add Contact</h3>
+<% end %>
+
+<%= form_for(contact, :html => {:class => "well"}) do |f| %>
   <div style="padding:0;margin:0;display:inline;"><%= f.hidden_field :notify_state %></div>
 
-  <% if @contact.persisted? %>
-    <%= link_to @contact, class: "delete-contact btn btn-danger btn-small", method: :delete, data: { confirm: 'Are you sure you want to delete this contact?' } do %>
-      <i class="icon-remove"></i>
-    <% end %>
-  <% end %>
-
-  <%= errors_helper @contact %>
+  <%= errors_helper contact %>
 
   <div class="input-group">
     <span class="input-group-addon input-large"><i class="icon-user"></i></span>
@@ -16,7 +14,7 @@
 
   <div class="input-group">
     <span class="input-group-addon input-large"><i class="icon-phone"></i></span>
-    <%= f.text_field :phone_number, :class => "input-large", :placeholder => "15551234567" %>
+    <%= f.telephone_field :phone_number, :class => "input-large", :placeholder => "15551234567" %>
   </div>
 
   <div class="btn-group btn-group-justified" data-toggle-name="contact[notify_state]" data-toggle="buttons-radio">
@@ -25,6 +23,10 @@
   <% end %>
   </div>
 
-  <%= f.submit @contact.persisted? ? "Save" : "Create", :class => "btn btn-large btn-primary btn-block" %>
+  <%= f.submit contact.persisted? ? "Save" : "Create", :class => "btn btn-large btn-primary btn-block" %>
+
+  <% if contact.persisted? %>
+    <%= link_to "Delete contact", contact, class: "delete-contact", method: :delete, data: { confirm: 'Are you sure you want to delete this contact?' } %>
+  <% end %>
 
 <% end %>

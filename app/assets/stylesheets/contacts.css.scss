@@ -40,9 +40,10 @@ form {
     margin-bottom: 10px;
   }
   .delete-contact {
-    position:absolute;
-    top:-1px;
-    right:-1px;
+    display: block;
+    color: #ccc;
+    text-align: center;
+    padding-top: 20px;
   }
 }
 

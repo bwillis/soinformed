@@ -2,32 +2,24 @@
   <div class="container">
 
     <%= link_to "SO Informed", root_path, :class => "navbar-brand" %>
+
     <div class="nav-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <% if current_user %>
-        <li>
-          <%= link_to contacts_path do %>
-            Contacts
-            <% if current_user.contacts.notifiable.count > 0 %>
-            <span class="badge"><%= current_user.contacts.notifiable.count %></span>
-            <% end %>
-          <% end %>
-        </li>
+        <li><%= link_to "Contacts", contacts_path %></li>
         <% end %>
-        <li><%= link_to "Privacy", privacy_path %></li>
-        <li><%= link_to "About", about_path %></li>
         <% if admin? %>
         <li><%= link_to "Admin Settings", admin_settings_path %></li>
         <% end %>
       </ul>
 
-      <p class="navbar-text pull-right">
-        <% if current_user %>
-          Welcome <%= current_user.name %>! (<%= link_to "not you?", session_path, :method => :delete, :class => "navbar-link" %>)
-        <% else %>
-          <%= link_to image_tag("connect-blue@2x.png", :size => "180x30"), authentication_path %>
-        <% end %>
+
+      <% if current_user %>
+      <p class="navbar-text navbar-login-message">
+        Welcome <%= current_user.name %>! (<%= link_to "not you?", session_path, :method => :delete, :class => "navbar-link" %>)
       </p>
+      <% end %>
+
     </div>
 
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">

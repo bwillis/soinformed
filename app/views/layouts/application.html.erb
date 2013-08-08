@@ -19,13 +19,21 @@
 
     <%= render :template => "shared/navbar" %>
 
-    <div class="container">
-      <%= flash_banner %>
-      <%= yield %>
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
+    <div class="main">
+      <div class="container">
 
+        <% if !current_user %>
+          <div class="main-login-button">
+            <%= link_to image_tag("connect-blue@2x.png", :size => "180x30"), authentication_path %>
+          </div>
+        <% end %>
+
+        <%= flash_banner %>
+        <%= yield %>
+        <footer>
+          <%= link_to "Privacy", privacy_path %> &copy; So Informed 2013
+        </footer>
+      </div>
     </div>
 
     <!-- Javascripts

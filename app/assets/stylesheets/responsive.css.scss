@@ -5,9 +5,28 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .main {
+    padding: 0 15px 0 15px;
+  }
+  
+  .navbar-login-message {
+    float: none;
+    padding: 0 15px 0 15px;
+  }
+}
+
 @media screen and (max-width: 480px) {
+  .main {
+    padding: 0 15px 0 15px;
+  }
+
   .btn-notify-state {
-    padding: 8px 13px;
+    padding: 8px 12px;
     font-size: 15px;
+  }
+
+  .section-heading {
+    text-align: center;
   }
 }
