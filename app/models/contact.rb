@@ -13,6 +13,11 @@ class Contact < ActiveRecord::Base
 
   scope :notifiable, lambda { where("notify_state != ?", :never) }
 
+  def phone_number=(num)
+    num.gsub!(/\D/, '') if num.is_a?(String)
+    super(num)
+  end
+
   def should_notify?(checkin_message=nil)
     case notify_state
       when :never
@@ -36,15 +41,13 @@ class Contact < ActiveRecord::Base
 
   private
 
-    def update_notify_state_time
-      self.notify_state_updated = Time.now
-    end
+  def update_notify_state_time
+    self.notify_state_updated = Time.now
+  end
 
-    def check_and_format_phone_number
-      if self.phone_number.length != 11
-        self.errors.add(:phone_number, "must be exactly 11 digits")
-      elsif !(self.phone_number =~ /\A[0-9]{11}\Z/)
-        self.errors.add(:phone_number, "must only have numbers")
-      end
+  def check_and_format_phone_number
+    if self.phone_number.length != 10
+      self.errors.add(:phone_number, "can only be 10 digits")
     end
+  end
 end

@@ -6,7 +6,7 @@ module SoInformed
         begin
           client.account.sms.messages.create(
               :from => Settings.twilio_from_number,
-              :to   => '+' + number,
+              :to   => '+1' + number,
               :body => message
           )
         rescue => e
