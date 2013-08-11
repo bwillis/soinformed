@@ -1,8 +1,6 @@
-h1 {
-  font-family: Ostrich, $font-family-base;
-  font-weight: bold;
+h1, h2, h3, h4, h5 {
+  color: $orange;
 }
-
 .well {
   .input-group input, .input-group-addon {
     border-color: darken($beige, 20);
@@ -10,10 +8,7 @@ h1 {
 }
 
 .navbar-brand {
-  font-family: Ostrich, $font-family-base;
-  font-size: 40px;
-  padding-bottom: 5px;
-  line-height: 30px;
+  padding: 9px;
 }
 .navbar-text {
   color: lighten($orange, 20);

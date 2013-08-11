@@ -1,26 +1,6 @@
 $font-path: "../assets/";
 $fontAwesomePath: $font-path;
 
-@font-face {
-  font-family: 'Ostrich';
-  src: url('#{$font-path}/ostrich-bold.eot');
-  src: url('#{$font-path}/ostrich-bold.eot?#iefix') format("embedded-opentype"),
-    url('#{$font-path}/ostrich-bold.woff') format("woff"),
-    url('#{$font-path}/ostrich-bold.ttf') format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Ostrich';
-  src: url('#{$font-path}/ostrich-black.eot');
-  src: url('#{$font-path}/ostrich-black.eot?#iefix') format("embedded-opentype"),
-    url('#{$font-path}/ostrich-black.woff') format("woff"),
-    url('#{$font-path}/ostrich-black.ttf') format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-
 @mixin animation($animation) {
   -webkit-animation: $animation;
   -moz-animation:    $animation;

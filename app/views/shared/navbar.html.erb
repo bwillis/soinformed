@@ -1,7 +1,6 @@
 <div class="navbar">
   <div class="container">
-
-    <%= link_to "SO<strong>INFORMED</strong>".html_safe, root_path, :class => "navbar-brand" %>
+    <%= link_to image_tag("logo.png", :size => "156x30"), root_path, :class => "navbar-brand" %>
     <% if current_user %>
     <div class="nav-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
