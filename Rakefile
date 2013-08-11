@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-FoursquareSpeed::Application.load_tasks
+SoInformed::Application.load_tasks

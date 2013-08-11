@@ -1,14 +1,19 @@
 class Contact < ActiveRecord::Base
 
-  attr_accessible :name, :notify_state, :phone_number
+  attr_accessible :name, :notify_state, :phone_number, :location_display
 
   belongs_to :user
 
   NOTIFY_STATES = [:never, :only_mention, :"6_hours", :always]
+  LOCATION_DISPLAYS = [:text, :link, :none]
+  LOCATION_DISPLAY_EXAMPLES = {:text => "123 Main St btw 1st and 2nd Ave", :link => "http://"}
 
   symbolize :notify_state, :in => NOTIFY_STATES, :scopes => true
+  symbolize :location_display, :in => LOCATION_DISPLAYS
+
   validates_presence_of :name, :phone_number
   validate :check_and_format_phone_number
+
   before_save :update_notify_state_time, :if => :notify_state_changed?
 
   scope :notifiable, lambda { where("notify_state != ?", :never) }

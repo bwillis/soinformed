@@ -2,7 +2,7 @@
   <h3 class="section-heading">Add Contact</h3>
 <% end %>
 
-<%= form_for(contact, :html => {:class => "well"}) do |f| %>
+<%= form_for(contact, :html => {:class => "form-contact well"}) do |f| %>
   <div style="padding:0;margin:0;display:inline;"><%= f.hidden_field :notify_state %></div>
 
   <%= errors_helper contact %>
@@ -19,8 +19,22 @@
 
   <div class="btn-group btn-group-justified" data-toggle-name="contact[notify_state]" data-toggle="buttons-radio">
   <% Contact::NOTIFY_STATES.each do |notify_value| %>
-      <%= notify_state_button notify_value %>
+    <%= notify_state_button notify_value %>
   <% end %>
+  </div>
+
+  <div style="display:none;">
+    <a href="" class="contact-details-link">More options <i class="icon-caret-down"></i></a>
+    <div class="contact-details">
+      <strong>How should we include your check-in location?</strong>
+      <% Contact::LOCATION_DISPLAYS.each do |location_display| %>
+        <div class="radio">
+          <label>
+            <%= f.radio_button :location_display, location_display %> <%= location_display.to_s.titleize %><%= " (e.g. '#{Contact::LOCATION_DISPLAY_EXAMPLES[location_display]}')" if Contact::LOCATION_DISPLAY_EXAMPLES[location_display] %>
+          </label>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <%= f.submit contact.persisted? ? "Save" : "Create", :class => "btn btn-large btn-primary btn-block" %>

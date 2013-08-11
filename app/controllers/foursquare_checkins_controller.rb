@@ -22,7 +22,14 @@ class FoursquareCheckinsController < ApplicationController
 
     # build message
     sms_message = "#{checkin.username} checked-in at #{checkin.venue_name}"
-    sms_message << " #{checkin.address}" if checkin.has_address?
+    if checkin.has_address?
+      case contact.location_display
+        when :text
+          sms_message << " #{checkin.address}"
+        when :link
+          sms_message << " http://#{Settings.base_url}/m/#{someid}"
+      end
+    end
     sms_message << " #{checkin.shout}" if checkin.has_shout?
 
     # notify contacts

@@ -7,4 +7,4 @@ heroku_env = File.join(Rails.root.to_s, 'config', 'heroku_env.rb')
 load(heroku_env) if File.exists?(heroku_env)
 
 # Initialize the rails application
-FoursquareSpeed::Application.initialize!
+SoInformed::Application.initialize!
