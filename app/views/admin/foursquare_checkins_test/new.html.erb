@@ -1,0 +1,12 @@
+<h1>Foursquare Checkins Test</h1>
+
+<%= form_tag(foursquare_checkins_path, :remote => true, :id => "push-test", :class => "well") do %>
+  <fieldset>
+    <div>
+      <label for="checkin">Checkin Data</label>
+      <%= text_area_tag :checkin, @checkin_data_json, :class => "form-control", :rows => 30 %>
+    </div>
+
+    <%= submit_tag "Send Push", :class => "btn btn-default" %>
+  </fieldset>
+<% end %>
