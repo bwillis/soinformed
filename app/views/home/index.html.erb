@@ -8,6 +8,13 @@
       <p class="lead">
         SoInformed is an <strong>easy</strong> way to keep your non-Foursquare friends up-to-date on where you check in!
       </p>
+
+      <% if !current_user %>
+        <div class="main-login-button">
+          <%= link_to image_tag("connect-blue@2x.png", :size => "300x48"), authentication_path %>
+        </div>
+      <% end %>
+
       <div class="bg-home">
         <div class="iphone checkin-screen">
           <div class="outgoing-msg">Come join us #alicia</div>
