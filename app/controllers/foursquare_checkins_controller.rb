@@ -35,6 +35,9 @@ class FoursquareCheckinsController < ApplicationController
     # notify contacts
     sms_worker = SoInformed::SmsWorker.new
     sms_worker.process(sms_message, contact_phone_numbers)
+    # mark contacts as messaged
+    notifiable_contacts.each { |contact| contact.mark_notified! }
+
     head :ok
   end
 

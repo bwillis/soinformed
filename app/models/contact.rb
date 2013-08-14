@@ -44,6 +44,12 @@ class Contact < ActiveRecord::Base
     super(val)
   end
 
+  def mark_notified!
+    increment(:message_count)
+    self.last_message_at = Time.now
+    save
+  end
+
   private
 
   def update_notify_state_time

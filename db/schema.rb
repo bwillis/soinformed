@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808073654) do
+ActiveRecord::Schema.define(:version => 20130811222228) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -22,22 +22,15 @@ ActiveRecord::Schema.define(:version => 20130808073654) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "location_display",     :default => "text"
-  end
-
-  create_table "phone_numbers", :force => true do |t|
-    t.integer  "user_id",                       :null => false
-    t.string   "number",                        :null => false
-    t.boolean  "disabled",   :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.integer  "message_count",        :default => 0
+    t.datetime "last_message_at"
   end
 
   create_table "users", :force => true do |t|
     t.string   "uid"
     t.string   "token"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.string   "phone_number_1"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "name"
   end
 
