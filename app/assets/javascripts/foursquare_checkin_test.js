@@ -1,5 +1,4 @@
 $(function ($) {
-    console.log("hi")
     $("#push-test").on("ajax:success", function() {
         alert("Push test sent successfully!");
     }).bind("ajax:error", function() {
