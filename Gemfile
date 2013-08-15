@@ -8,7 +8,7 @@ gem 'twilio-ruby'
 gem 'jquery-rails'
 
 gem 'sass-rails',   '~> 3.2.3'
-gem 'bootstrap-sass', :git => 'git://github.com/intridea/bootstrap-sass.git', :branch => '3'
+#gem 'bootstrap-sass', :git => 'git://github.com/intridea/bootstrap-sass.git', :branch => '3'
 gem 'compass-rails'
 gem 'uglifier'
 
