@@ -1,7 +1,15 @@
 <div class="row">
   <div class="col-lg-8 col-offset-2">
+    <h1>Your Contacts</h1>
     <% if current_user.contacts.length > 1 %>
+      <p class="lead">
+        Change or add a new contact below by entering their name, phone number and how often to notify them.
+      </p>
     <h3 class="section-heading">Manage Contacts</h3>
+    <% else %>
+      <p class="lead">
+        Add a new contact below by entering their name, phone number and how often to notify them.
+      </p>
     <% end %>
     <%= render :partial => "contacts/form", :collection => current_user.contacts, :as => :contact %>
   </div>

@@ -4,12 +4,20 @@
 
 .main-login-button {
   text-align: center;
-  margin: 10px 10px 30px;
+  margin: 30px 10px 30px;
 }
 
 footer {
-  padding: 15px 5px;
   border-top: 1px solid darken($beige, 10);
   margin-top: 20px;
   color: darken($beige, 30);
+  height: 40px;
+
+  .power .icon-heart {
+    margin-right: 15px;
+  }
+
+  .copyright {
+    padding-top: 15px;
+  }
 }

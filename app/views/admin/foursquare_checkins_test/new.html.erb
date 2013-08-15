@@ -1,10 +1,15 @@
 <h1>Foursquare Checkins Test</h1>
 
+<p>
+  Simulate the foursquare push API with this form. Substitute any values click the push button and check the logs if you see any issues.
+</p>
+
 <%= form_tag(foursquare_checkins_path, :remote => true, :id => "push-test", :class => "well") do %>
   <fieldset>
-    <div>
+    <div style="margin-bottom:10px;">
       <label for="checkin">Checkin Data</label>
-      <%= text_area_tag :checkin, @checkin_data_json, :class => "form-control", :rows => 30 %>
+      <span class="help-block">Your current user (foursquare id: '<%= current_user.uid %>') is set to be the foursquare user checking-in.</span>
+      <%= text_area_tag :checkin, @checkin_data_json, :class => "form-control", :rows => 10 %>
     </div>
 
     <%= submit_tag "Send Push", :class => "btn btn-default" %>

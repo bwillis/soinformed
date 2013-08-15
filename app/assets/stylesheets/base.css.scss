@@ -15,6 +15,15 @@ h1, h2, h3, h4, h5 {
 }
 $iphone-width: 210*1.5px;
 .bg-home {
+  text-align: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+
   .iphone {
     display: inline-block;
     height: 284*1.5px;
@@ -36,6 +45,7 @@ $iphone-width: 210*1.5px;
     color: #AAA;
     width: 0;
     overflow: hidden;
+    text-align: left;
     white-space: nowrap;
 
     @include animation(type-msg 10s 3s infinite ease-in );
@@ -115,5 +125,116 @@ $iphone-width: 210*1.5px;
   }
   35%, 89% {
     opacity: 1;
+  }
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -o-transform: rotate($deg);
+}
+
+.home-callout {
+  background: #FFF;
+  border-radius: 5px;
+  border: 2px solid lighten($orange, 20);
+  height: 200px;
+  position: relative;
+
+  > div {
+    //padding: 10px;
+  }
+  > p {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+    border-top: 1px solid lighten($orange, 20);
+    color: #777;
+  }
+  .home-share {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -108px;
+    left: 50%;
+    i {
+      position: absolute;
+    }
+    .icon-map-marker {
+      font-size: 30px;
+      color: $orange;
+      top: 20px;
+      left: 20px;
+      @include rotate(-45deg);
+    }
+    .icon-globe {
+      font-size: 60px;
+      color: $blue;
+      top: 30px;
+      left: 30px;
+    }
+    .icon-arrow-right {
+      font-size: 30px;
+      color: #CCC;
+      top: 40px;
+      left: 100px;
+    }
+    .icon-mobile-phone {
+      font-size: 70px;
+      color: #777;
+      top: 25px;
+      left: 150px;
+    }
+  }
+  .home-configure {
+    font-size: 20px;
+    padding-top: 10px;
+    color: #AAA;
+    position: absolute;
+    margin-left: -98px;
+    left: 50%;
+    i {
+      color: $orange;
+      font-size: 25px;
+      width: 30px;
+      display: inline-block;
+    }
+    .icon-heart {
+      color: $watermelon;
+    }
+  }
+  .home-notify {
+    position: absolute;
+    margin-left: -98px;
+    margin-top: 10px;
+    left: 50%;
+    .arrows {
+      color: #AAA;
+      margin-left: 13px;
+      i {
+        display: inline-block;
+        font-size: 30px;
+        margin: 5px 12px;
+      }
+    }
+    .icon-arrow-left {
+      @include rotate(-45deg);
+    }
+    .icon-arrow-right {
+      @include rotate(45deg);
+    }
+    .icon-mobile-phone {
+      font-size: 70px;
+      margin: 10px 15px;
+      color: $orange;
+      &:first-child {
+        color: $watermelon;
+      }
+      &:last-child {
+        color: $blue;
+        margin-right: 0px;
+      }
+    }
   }
 }

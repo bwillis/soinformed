@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "SO Informed" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "SoInformed" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -25,7 +25,15 @@
         <%= flash_banner %>
         <%= yield %>
         <footer>
+          <div class="copyright pull-left">
           &copy; SoInformed 2013 | <%= link_to "Privacy", privacy_path %>
+          </div>
+          <div class="power pull-right">
+            <%= link_to image_tag("foursquare-powered.png", :size => "220x50"), "http://foursquare.com", :target => '_blank' %>
+            <i class="icon-heart"></i>
+            <%= link_to image_tag("twilio-powered.png", :size => "166x31"), "http://twilio.com", :target => '_blank' %>
+          </div>
+
         </footer>
       </div>
     </div>
