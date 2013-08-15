@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/intridea/bootstrap-sass.git
-  revision: f27b4092e715711773edf660461cd4392cf3a43b
+  revision: 711068f12c3b193c5a29be5a40236a11eac0d0bb
   branch: 3
   specs:
-    bootstrap-sass (2.3.1.0)
+    bootstrap-sass (3.0.0.0)
       sass (~> 3.2)
 
 GEM
