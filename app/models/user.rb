@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def test_auth_token
-    foursquare_user
+    foursquare_user rescue false
   end
 
   def foursquare_user
