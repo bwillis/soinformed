@@ -12,7 +12,7 @@ module SoInformed
 
         address       = data['venue']['location']['address']
         cross_street  = data['venue']['location']['crossStreet']
-        @address = " (#{address}#{cross_street ? " by #{cross_street}" : ""})" if address
+        @address = "#{address}#{cross_street ? " by #{cross_street}" : ""}" if address
       end
 
       def has_shout?
