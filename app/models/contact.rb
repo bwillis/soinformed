@@ -16,7 +16,12 @@ class Contact < ActiveRecord::Base
 
   before_save :update_notify_state_time, :if => :notify_state_changed?
 
-  scope :notifiable, lambda { where("notify_state != ?", :never) }
+  def self.notifiable(message)
+    contacts = where("notify_state != ?", :never).keep_if do |contact|
+      contact.should_notify?(message)
+    end
+    Contacts.new(contacts)
+  end
 
   def phone_number=(num)
     num.gsub!(/\D/, '') if num.is_a?(String)
