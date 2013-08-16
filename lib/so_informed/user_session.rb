@@ -15,7 +15,7 @@ module SoInformed
     end
 
     def authenticated?
-      user.present? && user.test_auth_token
+      user.present?
     end
 
     def authenticate(code)
