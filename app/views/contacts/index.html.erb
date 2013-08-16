@@ -2,12 +2,15 @@
   <div class="col-lg-8 col-offset-2">
     <% if current_user.contacts.length > 1 %>
       <p class="lead">
-        <strong>Change</strong> or <strong>add</strong> contacts below by entering their name, phone number and how often to notify them.
+        <strong>Change</strong> or <strong>add</strong> contacts below by entering their name, phone number and how often to notify them when you check-in on Foursquare.
       </p>
     <h3 class="section-heading">Manage Contacts</h3>
     <% else %>
       <p class="lead">
-        Add a new contact below by entering their name, phone number and how often to notify them.
+        Welcome <strong><%= current_user.name %></strong>!
+      </p>
+      <p class="lead">
+        Create a <strong>new</strong> contact below by entering their name, phone number and how often to notify them when you check-in on Foursquare.
       </p>
     <% end %>
     <%= render :partial => "contacts/form", :collection => current_user.contacts, :as => :contact %>
