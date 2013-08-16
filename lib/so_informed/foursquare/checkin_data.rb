@@ -7,11 +7,12 @@ module SoInformed
             "createdAt"      => 1315955008,
             "type"           => "checkin",
             "timeZoneOffset" => -240,
+            "shout"          => "This is a soinformed test!",
             "user"           => {
                 "id"           => user_id || "1",
                 "firstName"    => "Jimmy",
                 "lastName"     => "Foursquare",
-                "photo"        => "https=>//foursquare.com/img/blank_boy.png",
+                "photo"        => "https://foursquare.com/img/blank_boy.png",
                 "gender"       => "male",
                 "homeCity"     => "New York, NY",
                 "relationship" => "self"
@@ -37,7 +38,7 @@ module SoInformed
                         "name"       => "Tech Startup",
                         "pluralName" => "Tech Startups",
                         "shortName"  => "Tech Startup",
-                        "icon"       => "https=>//foursquare.com/img/categories/building/default.png",
+                        "icon"       => "https://foursquare.com/img/categories/building/default.png",
                         "parents"    => [
                             "Professional & Other Places",
                             "Offices"
@@ -51,7 +52,7 @@ module SoInformed
                     "usersCount"    => 565,
                     "tipCount"      => 128
                 },
-                "url"        => "http=>//foursquare.com"
+                "url"        => "http://foursquare.com"
             }
         }
       end
