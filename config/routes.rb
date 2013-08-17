@@ -7,6 +7,7 @@ SoInformed::Application.routes.draw do
   namespace :admin do
     resources :settings
     resources :foursquare_checkins_test
+    resources :users
   end
 
   resource :session, :only => [:destroy] do

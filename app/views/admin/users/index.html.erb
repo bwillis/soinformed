@@ -1,0 +1,22 @@
+<h1>Users</h1>
+<p>
+  These are the currently registered users.
+</p>
+<table class="table table-striped">
+  <tbody>
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Total Contacts</th>
+    <th>Messages Sent</th>
+  </thead>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.contacts.length %></td>
+      <td><%= user.contacts.inject(0) { |sum, contact| contact.message_count + sum } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
