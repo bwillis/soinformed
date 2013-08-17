@@ -29,7 +29,7 @@ module SoInformed
     end
 
     def admin?
-      false
+      authenticated? && user.id == 1
     end
 
     private
