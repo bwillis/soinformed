@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
   end
 
   def foursquare_user
+    @foursquare_user ||= foursquare_client.users.find("self")
+  end
+
+  def foursquare_client
     @foursquare ||= Foursquare::Base.new(token)
-    @foursquare_user ||= @foursquare.users.find("self")
   end
 end

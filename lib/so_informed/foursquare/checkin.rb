@@ -2,9 +2,10 @@ module SoInformed
   module Foursquare
     class Checkin
 
-      attr_reader :username, :user_id, :venue_name, :address, :shout
+      attr_reader :username, :user_id, :venue_name, :address, :shout, :id
 
       def initialize(data)
+        @id           = data['id']
         @username     = "#{data['user']['firstName']} #{data['user']['lastName']}"
         @user_id      = data['user']['id']
         @venue_name   = data['venue']['name']

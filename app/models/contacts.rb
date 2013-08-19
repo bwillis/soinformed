@@ -11,7 +11,11 @@ class Contacts < Array
     self.collect { |contact| contact.location_display }.uniq
   end
 
-  def mark_all_notified!
-    self.each { |contact| contact.mark_notified! }
+  def notify_by_mention_names
+    self.keep_if { |contact| contact.notify == :mention }.map(&:name)
+  end
+
+  def mark_all_notified!(checkin_id)
+    self.each { |contact| contact.mark_notified!(checkin_id) }
   end
 end

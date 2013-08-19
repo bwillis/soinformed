@@ -1,3 +1,5 @@
+require 'active_support/core_ext/array/conversions'
+
 module SoInformed
   class Informer
     def initialize(checkin)
@@ -11,10 +13,17 @@ module SoInformed
       return if @user.nil?
       return if @notifiable_contacts.empty?
 
-      send_sms(build_messages)
+      # send the sms to the contacts
+      send_sms(build_sms_messages)
+
+      # send a reply back to the users checkin so they
+      # know they've mentioned someone
+      if reply = build_foursquare_reply
+        send_foursquare_checkin_reply(reply)
+      end
 
       # mark contacts as messaged
-      @notifiable_contacts.mark_all_notified!
+      @notifiable_contacts.mark_all_notified!(@checkin.id)
     end
 
     private
@@ -27,13 +36,24 @@ module SoInformed
       end
     end
 
+    def send_foursquare_checkin_reply(message)
+      checkin_action = SoInformed::Foursquare::CheckinAction.new(@user.foursquare_client, @checkin.id)
+      checkin_action.reply(message, "https://soinformed.heroku.com/contacts")
+    end
+
     # build message for all contacts location displays
-    def build_messages
+    def build_sms_messages
       @notifiable_contacts.location_displays.inject({}) do |hash, type|
         message = Foursquare::MessageBuilder.from_checkin(@checkin, type)
         hash[type] = message.get_message
         hash
       end
+    end
+
+    def build_foursquare_reply
+      names = @notifiable_contacts.notify_by_mention_names
+      return false if names.empty?
+      "#{@user.name} mentioned #{names.as_sentence} and kept them up to date with this checkin!"
     end
   end
 end
