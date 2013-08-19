@@ -23,6 +23,10 @@ class Contact < ActiveRecord::Base
     Contacts.new(contacts)
   end
 
+  def self.find_last_messaged_contact(phone_number)
+    Contact.where("phone_number = ? and last_message_at is not null", phone_number).order('last_message_at desc').first
+  end
+
   def phone_number=(num)
     num.gsub!(/\D/, '') if num.is_a?(String)
     super(num)
@@ -49,8 +53,9 @@ class Contact < ActiveRecord::Base
     super(val)
   end
 
-  def mark_notified!
+  def mark_notified!(checkin_id)
     increment(:message_count)
+    self.last_checkin_id = checkin_id
     self.last_message_at = Time.now
     save
   end

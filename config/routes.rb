@@ -3,6 +3,7 @@ SoInformed::Application.routes.draw do
   resources :contacts
   resources :phone_numbers
   resources :foursquare_checkins, :only => [:create]
+  resources :twilio_sms, :only => [:create]
 
   namespace :admin do
     resources :settings
