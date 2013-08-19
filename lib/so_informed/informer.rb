@@ -53,7 +53,7 @@ module SoInformed
     def build_foursquare_reply
       names = @notifiable_contacts.notify_by_mention_names
       return false if names.empty?
-      "#{@user.name} mentioned #{names.as_sentence} and kept them up to date with this checkin!"
+      "#{@user.name} mentioned #{names.to_sentence} and kept them up to date with this checkin!"
     end
   end
 end
