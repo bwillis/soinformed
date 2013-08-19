@@ -16,7 +16,7 @@ class TwilioSmsController < ApplicationController
     user = contact.user
     message = params[:Body]
     checkin_action = SoInformed::Foursquare::CheckinAction.new(user.foursquare_client, contact.last_checkin_id)
-    checkin_action.post(message, "https://soinformed.heroku.com/")
+    checkin_action.post("#{contact.name} commented: #{message}", "https://soinformed.heroku.com/")
 
     head :ok
   end
