@@ -23,6 +23,6 @@ class User < ActiveRecord::Base
   end
 
   def foursquare_client
-    @foursquare ||= Foursquare::Base.new(token)
+    @foursquare ||= SoInformed::Foursquare::ClientFactory.get_client(token)
   end
 end

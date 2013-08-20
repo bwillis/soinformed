@@ -11,7 +11,7 @@ module SoInformed
         message = "#{@name} checked-in at #{@location}"
         message << " (#{@address})" if @address
         message << " #{@comment}" if @comment
-        message
+        "#{message} Reply to comment"
       end
 
       def self.from_checkin(checkin, location_display=:text)

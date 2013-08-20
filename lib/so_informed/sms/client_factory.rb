@@ -2,7 +2,7 @@ module SoInformed
   module Sms
     class ClientFactory
       def self.get_client
-        if Rails.env.development?
+        if [:development, :test].include? Rails.env
           LoggerClient.new
         else
           TwilioClient.new

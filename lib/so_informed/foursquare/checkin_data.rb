@@ -1,13 +1,18 @@
 module SoInformed
   module Foursquare
     class CheckinData
-      def self.default(user_id=nil)
+
+      def self.object(user_id="1", shout="This is a soinformed test!")
+        Checkin.new(self.default(user_id, shout))
+      end
+
+      def self.default(user_id="1", shout="This is a soinformed test!")
         {
             "id"             => "4e6fe1404b90c00032eeac34",
             "createdAt"      => 1315955008,
             "type"           => "checkin",
             "timeZoneOffset" => -240,
-            "shout"          => "This is a soinformed test!",
+            "shout"          => shout,
             "user"           => {
                 "id"           => user_id || "1",
                 "firstName"    => "Jimmy",

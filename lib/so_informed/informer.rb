@@ -2,10 +2,14 @@ require 'active_support/core_ext/array/conversions'
 
 module SoInformed
   class Informer
+
+    attr_reader :user, :notifiable_contacts
+
     def initialize(checkin)
       @checkin = checkin
-      @user = User.find_by_uid(@checkin.user_id)
-      @notifiable_contacts = @user.contacts.notifiable(@checkin.shout)
+      if @user = User.find_by_uid(@checkin.user_id)
+        @notifiable_contacts = @user.contacts.notifiable(@checkin.shout)
+      end
     end
 
     def notify_all

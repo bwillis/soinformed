@@ -24,3 +24,4 @@ gem 'newrelic_rpm'
 
 gem 'rspec'
 gem 'rspec-rails'
+gem 'timecop'

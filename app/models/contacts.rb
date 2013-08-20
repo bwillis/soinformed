@@ -12,7 +12,7 @@ class Contacts < Array
   end
 
   def notify_by_mention_names
-    self.keep_if { |contact| contact.notify_state == :only_mention }.map(&:name)
+    self.dup.keep_if { |contact| contact.notify_state == :only_mention }.map(&:name)
   end
 
   def mark_all_notified!(checkin_id)
