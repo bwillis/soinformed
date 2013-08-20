@@ -4,12 +4,14 @@ ruby '2.0.0'
 
 gem 'rails'
 
+gem 'unicorn'
+
 gem 'pg'
 gem 'heroku'
 gem 'twilio-ruby'
 gem 'jquery-rails'
 
-gem 'sass-rails',   '~> 3.2.3'
+gem 'sass-rails', '~> 3.2.3'
 gem 'bootstrap-sass', :git => 'git://github.com/intridea/bootstrap-sass.git', :branch => '3'
 gem 'compass-rails'
 gem 'uglifier'
@@ -20,10 +22,12 @@ gem 'json'
 gem 'typhoeus'
 gem 'quimby'
 gem 'symbolize'
-gem 'quiet_assets', :group => :development
-gem 'thin'
 gem 'newrelic_rpm'
 
-gem 'rspec'
-gem 'rspec-rails'
-gem 'timecop'
+group :development, :test do
+  gem 'thin'
+  gem 'quiet_assets'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'timecop'
+end
