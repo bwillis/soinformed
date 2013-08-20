@@ -21,3 +21,6 @@ gem 'symbolize'
 gem 'quiet_assets', :group => :development
 gem 'thin'
 gem 'newrelic_rpm'
+
+gem 'rspec'
+gem 'rspec-rails'
