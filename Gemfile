@@ -23,6 +23,7 @@ gem 'sass-rails'
 gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
 gem 'compass-rails'
 gem 'uglifier'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'thin'
