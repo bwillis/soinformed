@@ -36,19 +36,24 @@ $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
 $body-bg: lighten($beige, 2);
-//$navbar-color: $yellow;
 
-$navbar-bg:                        $orange;
-$navbar-color:                     #FFF;
-$navbar-link-color:                #FFF;
-$navbar-link-hover-color:          darken($orange, 20);
-$navbar-link-hover-bg:             lighten($orange, 20);
-$navbar-link-active-color:         darken($orange, 25);
-$navbar-link-active-bg:            lighten($orange, 20);
-$navbar-brand-hover-color:         lighten($orange, 25);
-$navbar-brand-hover-bg:            transparent;
+$navbar-default-bg:                        $orange;
+$navbar-default-color:                     #FFF;
+$navbar-default-link-color:                #FFF;
+$navbar-default-link-hover-color:          darken($orange, 20);
+$navbar-default-link-hover-bg:             lighten($orange, 20);
+$navbar-default-link-active-color:         darken($orange, 25);
+$navbar-default-link-active-bg:            lighten($orange, 20);
+$navbar-default-brand-hover-color:         lighten($orange, 25);
+$navbar-default-brand-hover-bg:            transparent;
+
+$component-active-bg:                      $orange;
+
 
 $well-bg: darken($beige, 2);
 
 $btn-default-bg: lighten($blue, 10);
+$btn-default-color: #FFF;
+$btn-default-border: lighten($blue, 10);
+
 $btn-primary-bg: darken($blue, 15);

@@ -49,4 +49,6 @@ SoInformed::Application.configure do
 
   # force ssl on in prod
   config.force_ssl = true
+
+  config.eager_load = true
 end

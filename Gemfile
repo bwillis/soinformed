@@ -1,20 +1,14 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails'
+gem 'rails', '4.0.0'
 
 gem 'unicorn'
 
 gem 'pg'
 gem 'heroku'
 gem 'twilio-ruby'
-gem 'jquery-rails'
-
-gem 'sass-rails', '~> 3.2.3'
-gem 'bootstrap-sass', :git => 'git://github.com/intridea/bootstrap-sass.git', :branch => '3'
-gem 'compass-rails'
-gem 'uglifier'
 
 gem 'settingslogic'
 gem 'haml'
@@ -23,6 +17,12 @@ gem 'typhoeus'
 gem 'quimby'
 gem 'symbolize'
 gem 'newrelic_rpm'
+
+gem 'jquery-rails'
+gem 'sass-rails'
+gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
+gem 'compass-rails'
+gem 'uglifier'
 
 group :development, :test do
   gem 'thin'

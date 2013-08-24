@@ -16,6 +16,6 @@ module ContactsHelper
             content_tag(:span, "never")
     end
 
-    raw content_tag :a, c, :"data-value" => notify_state, :class => "btn btn-default btn-large btn-large-icon btn-notify-state"
+    raw content_tag :a, c, :"data-value" => notify_state, :class => "btn btn-default btn-lg btn-large-icon btn-notify-state"
   end
 end

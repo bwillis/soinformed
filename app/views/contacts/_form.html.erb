@@ -8,13 +8,13 @@
   <%= errors_helper contact %>
 
   <div class="input-group">
-    <span class="input-group-addon input-large"><i class="icon-user"></i></span>
-    <%= f.text_field :name, :class => "form-control input-large", :placeholder => "name" %>
+    <span class="input-group-addon input-lg"><i class="icon-user"></i></span>
+    <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "name" %>
   </div>
 
   <div class="input-group">
-    <span class="input-group-addon input-large"><i class="icon-phone"></i></span>
-    <%= f.telephone_field :phone_number, :class => "input-large", :value => number_to_phone(contact.phone_number), :placeholder => number_to_phone("5555555555") %>
+    <span class="input-group-addon input-lg"><i class="icon-phone"></i></span>
+    <%= f.telephone_field :phone_number, :class => "form-control input-lg", :value => number_to_phone(contact.phone_number), :placeholder => number_to_phone("5555555555") %>
   </div>
 
   <div class="btn-group btn-group-justified" data-toggle-name="contact[notify_state]" data-toggle="buttons-radio">
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <%= f.submit contact.persisted? ? "Save" : "Create", :class => "btn btn-large btn-primary btn-block" %>
+  <%= f.submit contact.persisted? ? "Save" : "Create", :class => "btn btn-lg btn-primary btn-block" %>
 
   <% if contact.persisted? %>
     <%= link_to "Delete contact", contact, class: "delete-contact", method: :delete, data: { confirm: 'Are you sure you want to delete this contact?' } %>

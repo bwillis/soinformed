@@ -7,8 +7,10 @@
 <%= form_for(:settings, :html => {:class => "well"}) do |f| %>
 
   <div class="checkbox">
-    <label>Dev session enabled?</label>
-    <%= check_box_tag :dev_session_enabled, true, dev_session_enabled?, {:class => "form-control"} %>
+    <label>
+      <%= check_box_tag :dev_session_enabled, true, dev_session_enabled? %>
+      Dev session enabled?
+    </label>
     <span class="help-block">This setting controls a cookie that can disable automatic login in with the dev session. Uncheck to turn it off. NOTE: To re-enable dev session you need to delete the cookie.</span>
   </div>
 

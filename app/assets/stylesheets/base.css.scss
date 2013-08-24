@@ -7,12 +7,23 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+nav.navbar-default {
+  background-color: $orange;
+}
 .navbar-brand {
   padding: 9px;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
 }
-.navbar-text {
+.navbar-default .navbar-text {
   color: lighten($orange, 20);
 }
+
+.lead {
+  font-size: 21px;
+}
+
 $iphone-width: 210*1.5px;
 .bg-home {
   margin-top: 30px;
@@ -144,9 +155,6 @@ $iphone-width: 210*1.5px;
   position: relative;
   margin-top:10px;
 
-  > div {
-    //padding: 10px;
-  }
   > p {
     position: absolute;
     width: 100%;

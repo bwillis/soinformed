@@ -1,6 +1,6 @@
 class Contact < ActiveRecord::Base
 
-  attr_accessible :name, :notify_state, :phone_number, :location_display
+  #attr_accessible :name, :notify_state, :phone_number, :location_display
 
   belongs_to :user
 

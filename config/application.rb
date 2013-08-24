@@ -2,9 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# If you have a Gemfile, require the gems listed there, including any gems
+# Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+Bundler.require(:default, Rails.env)
 
 module SoInformed
   class Application < Rails::Application
@@ -37,6 +37,8 @@ module SoInformed
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.enabled = true
     config.assets.precompile = [ Proc.new{ |path| !File.extname(path).in?(['.js', '.css']) }, /application.(css|js)$/ ]
+    config.assets.js_compressor = :uglifier
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -44,6 +46,6 @@ module SoInformed
     config.filter_parameters += [:password]
 
     # keep alive
-    config.middleware.insert_after Rack::Lock, "Ping"
+    config.middleware.use "Ping"
   end
 end

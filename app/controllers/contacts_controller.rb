@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = current_user.contacts.build(params[:contact])
+    @contact = current_user.contacts.build(contact_params)
 
     if @contact.save
       redirect_to contacts_path, notice: 'Contact was successfully created.'
@@ -37,5 +37,9 @@ class ContactsController < ApplicationController
 
     def model_alert(model)
       "Oh noes! Please fix these issues and try again: <ul><li>#{model.errors.full_messages.join("</li><li>")}</li></ul>".html_safe
+    end
+
+    def contact_params
+      params.require(:contact).permit(:contact)
     end
 end

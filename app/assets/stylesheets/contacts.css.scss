@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .btn-large-icon {
+  border:none;
   span {
     font-size: 0.8em;
     line-height: 1.2;
@@ -14,18 +15,26 @@
     font-size: 1.5em;
   }
 }
-.btn-notify-state.active {
-  .icon-ban-circle {
-   color: $sherbert;
+
+.btn-notify-state {
+  color: #fff;
+  &:hover {
+    color: #fff;
   }
-  .icon-comment {
-    color: $sherbert;
-  }
-  .icon-time {
-    color: $sherbert;
-  }
-  .icon-heart {
-    color: $watermelon;
+  &.active {
+    color: #fff;
+    .icon-ban-circle {
+     color: $sherbert;
+    }
+    .icon-comment {
+      color: $sherbert;
+    }
+    .icon-time {
+      color: $sherbert;
+    }
+    .icon-heart {
+      color: $watermelon;
+    }
   }
 }
 
