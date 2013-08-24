@@ -53,4 +53,5 @@ SoInformed::Application.configure do
   config.eager_load = true
 
   config.assets.digest = true
+  config.assets.compile = true
 end
