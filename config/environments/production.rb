@@ -51,4 +51,6 @@ SoInformed::Application.configure do
   config.force_ssl = true
 
   config.eager_load = true
+
+  config.assets.digest = true
 end
