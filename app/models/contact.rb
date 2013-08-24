@@ -1,7 +1,5 @@
 class Contact < ActiveRecord::Base
 
-  #attr_accessible :name, :notify_state, :phone_number, :location_display
-
   belongs_to :user
 
   NOTIFY_STATES = [:never, :only_mention, :"6_hours", :always]
