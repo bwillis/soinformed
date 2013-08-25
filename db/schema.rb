@@ -11,23 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819061809) do
+ActiveRecord::Schema.define(version: 20130819061809) do
 
-  create_table "contacts", :force => true do |t|
+  create_table "contacts", force: true do |t|
     t.string   "name"
     t.string   "phone_number"
-    t.string   "notify_state",         :default => "never"
+    t.string   "notify_state",         default: "never"
     t.datetime "notify_state_updated"
     t.integer  "user_id"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.string   "location_display",     :default => "text"
-    t.integer  "message_count",        :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "location_display",     default: "text"
+    t.integer  "message_count",        default: 0
     t.datetime "last_message_at"
     t.string   "last_checkin_id"
   end
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: true do |t|
     t.string   "uid"
     t.string   "token"
     t.datetime "created_at", :null => false
