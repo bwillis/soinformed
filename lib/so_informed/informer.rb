@@ -9,6 +9,8 @@ module SoInformed
       @checkin = checkin
       if @user = User.find_by_uid(@checkin.user_id)
         @notifiable_contacts = @user.contacts.notifiable(@checkin.shout)
+      else
+        Rails.logger.warn("No user found for #{@checkin.user_id}")
       end
     end
 

@@ -5,7 +5,7 @@ class TwilioSmsController < ApplicationController
 
 
   def create
-    phone_number = params[:From]
+    phone_number = sms_params[:From]
     phone_number.gsub!("+1", "") # remove the +1 in the E.164 phone number
 
     # replies always go to the last checkin the contact recieved
@@ -14,7 +14,7 @@ class TwilioSmsController < ApplicationController
     head :ok and return unless contact
 
     user = contact.user
-    message = params[:Body]
+    message = sms_params[:Body]
     checkin_action = SoInformed::Foursquare::CheckinAction.new(user.foursquare_client, contact.last_checkin_id)
     checkin_action.post("#{contact.name} commented: #{message}", "https://soinformed.heroku.com/")
 
@@ -24,9 +24,13 @@ class TwilioSmsController < ApplicationController
   private
 
   def verify_twilio_push_secret
-    if params[:AccountSid] != Settings.twilio_app_sid && !Rails.env.development?
+    if sms_params[:AccountSid] != Settings.twilio_app_sid && !Rails.env.development?
       Rails.logger.warn("Invalid twilio push secret request.")
       render :file => "public/401.html", :status => :unauthorized and return
     end
+  end
+
+  def sms_params
+    params.permit(:AccountSid, :Body, :From)
   end
 end

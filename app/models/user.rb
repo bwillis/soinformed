@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :contacts
+  has_many :contacts, -> { order "updated_at DESC" }
 
   def self.find_or_create_by_foursquare_user(token)
     foursquare = Foursquare::Base.new(token)

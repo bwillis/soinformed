@@ -40,6 +40,6 @@ class ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:phone_number, :name, :notify_state)
+      params.require(:contact).permit(:phone_number, :name, :notify_state, :location_display)
     end
 end
