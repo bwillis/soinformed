@@ -7,11 +7,11 @@ module SoInformed
       end
 
       def reply(message, url)
-        @foursquare_client.post("checkins/#{@checkin_id}/reply", {:text => message, :url => url})
+        @foursquare_client.post("checkins/#{@checkin_id}/reply", {:text => message, :url => url, :v => "20130828"})
       end
 
       def post(message, url)
-        @foursquare_client.post("checkins/#{@checkin_id}/addpost", {:text => message, :url => url})
+        @foursquare_client.post("checkins/#{@checkin_id}/addpost", {:text => message, :url => url, :v => "20130828"})
       end
     end
   end
