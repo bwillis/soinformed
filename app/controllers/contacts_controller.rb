@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
   def update
     @contact = current_user.contacts.find(params[:id])
 
-    if @contact.update_attributes(params[:contact])
+    if @contact.update_attributes(contact_params)
       redirect_to contacts_path, notice: 'Contact was successfully updated.'
     else
       current_user.contacts.build
