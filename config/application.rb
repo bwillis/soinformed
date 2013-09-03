@@ -47,5 +47,7 @@ module SoInformed
 
     # keep alive
     config.middleware.use "Ping"
+    config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
+
   end
 end
