@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe SoInformed::Informer do
+describe SoInformed::CheckinInformer do
   before do
     @user = User.create(:name => "test", :uid => "test")
     @contact_a = @user.contacts.create(:name => "A", :phone_number => "1111111111", :notify_state => :always)
@@ -9,7 +9,7 @@ describe SoInformed::Informer do
 
     @checkin = SoInformed::Foursquare::CheckinData.object(@user.uid, "Hey #B what's up?")
 
-    @informer = SoInformed::Informer.new(@checkin)
+    @informer = SoInformed::CheckinInformer.new(@checkin)
   end
 
   context "initialize" do
@@ -19,23 +19,17 @@ describe SoInformed::Informer do
   end
 
   context "notify_all" do
-    before do
-      @sms_client = double("FakeSmsClient")
-      @sms_client.stub(:process)
-      SoInformed::Sms::ClientFactory.stub(:get_client).and_return(@sms_client)
-
-      @foursquare_client = double("FakeFoursquareClient")
-      @foursquare_client.stub(:post)
-      SoInformed::Foursquare::ClientFactory.stub(:get_client).and_return(@foursquare_client)
-    end
-
     it "should notify two contacts via sms" do
-      @sms_client.should_receive(:process).with("Jimmy Foursquare checked-in at foursquare HQ (East Village) Hey #B what's up? Reply to comment", ["1111111111","2222222222"])
+      SoInformed::Sms::MockClient.any_instance.should_receive(:process).with do |message, numbers|
+        message.should == "Jimmy Foursquare checked-in at foursquare HQ (East Village) Hey #B what's up? Reply to comment"
+        numbers.should include("1111111111","2222222222")
+        true
+      end
       @informer.notify_all
     end
 
     it "should post to foursquare" do
-      @foursquare_client.should_receive(:post)
+      SoInformed::Foursquare::MockClient.any_instance.should_receive(:post)
       @informer.notify_all
     end
 

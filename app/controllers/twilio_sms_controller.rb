@@ -3,21 +3,8 @@ class TwilioSmsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
   before_filter :verify_twilio_push_secret, :only => :create
 
-
   def create
-    phone_number = sms_params[:From]
-    phone_number.gsub!("+1", "") # remove the +1 in the E.164 phone number
-
-    # replies always go to the last checkin the contact recieved
-    contact = Contact.find_last_messaged_contact(phone_number)
-
-    head :ok and return unless contact
-
-    user = contact.user
-    message = sms_params[:Body]
-    checkin_action = SoInformed::Foursquare::CheckinAction.new(user.foursquare_client, contact.last_checkin_id)
-    checkin_action.post("#{contact.name} commented: #{message}", "https://soinformed.heroku.com/")
-
+    SoInformed::SmsInformer.new(sms_params[:From], sms_params[:Body]).notify_all
     head :ok
   end
 

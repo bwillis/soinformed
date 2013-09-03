@@ -2,10 +2,15 @@ module SoInformed
   module Sms
     class ClientFactory
       def self.get_client
-        if [:development, :test].include? Rails.env.to_sym
-          LoggerClient.new
-        else
-          TwilioClient.new
+        case Rails.env.to_sym
+          when :development
+            LoggerClient.new
+          when :test
+            MockClient.new
+          when :production
+            TwilioClient.new
+          else
+            raise "No sms client for this environment"
         end
       end
     end

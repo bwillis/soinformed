@@ -45,6 +45,7 @@ GEM
     compass-rails (2.0.alpha.0)
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
+    dalli (2.6.4)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     ethon (0.5.10)
@@ -80,6 +81,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     mime-types (1.24)
     minitest (4.7.5)
     multi_json (1.7.9)
@@ -182,10 +184,12 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass!
   compass-rails (~> 2.0.alpha.0)
+  dalli
   haml
   heroku
   jquery-rails
   json
+  memcachier
   newrelic_rpm
   pg
   quiet_assets

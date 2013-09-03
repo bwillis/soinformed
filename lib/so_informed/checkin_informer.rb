@@ -1,7 +1,7 @@
 require 'active_support/core_ext/array/conversions'
 
 module SoInformed
-  class Informer
+  class CheckinInformer
 
     attr_reader :user, :notifiable_contacts
 
@@ -50,7 +50,7 @@ module SoInformed
     # build message for all contacts location displays
     def build_sms_messages
       @notifiable_contacts.location_displays.inject({}) do |hash, type|
-        message = Foursquare::MessageBuilder.from_checkin(@checkin, type)
+        message = Foursquare::CheckinMessageBuilder.from_checkin(@checkin, type)
         hash[type] = message.get_message
         hash
       end

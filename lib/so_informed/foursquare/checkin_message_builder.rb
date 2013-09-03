@@ -1,6 +1,6 @@
 module SoInformed
   module Foursquare
-    class MessageBuilder
+    class CheckinMessageBuilder
       attr_writer :address, :comment
 
       def initialize(name, location)
@@ -15,7 +15,7 @@ module SoInformed
       end
 
       def self.from_checkin(checkin, location_display=:text)
-        message = Foursquare::MessageBuilder.new(checkin.username, checkin.venue_name)
+        message = Foursquare::CheckinMessageBuilder.new(checkin.username, checkin.venue_name)
         message.comment = checkin.shout if checkin.has_shout?
         if checkin.has_address?
           case location_display

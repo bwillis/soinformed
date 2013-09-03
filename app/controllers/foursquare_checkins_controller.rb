@@ -7,7 +7,7 @@ class FoursquareCheckinsController < ApplicationController
   def create
     checkin_data = ActiveSupport::JSON.decode(checkin_params[:checkin])
     checkin = SoInformed::Foursquare::Checkin.new(checkin_data)
-    SoInformed::Informer.new(checkin).notify_all
+    SoInformed::CheckinInformer.new(checkin).notify_all
     head :ok
   end
 
