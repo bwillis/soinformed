@@ -20,16 +20,6 @@ SoInformed::Application.routes.draw do
   get "privacy" => "home#privacy"
   get "about" => "home#about"
   get "edit" => "home#edit"
-
-  #resources :examples do
-  #  collection do
-  #    get 'user'
-  #    get 'checkins'
-  #    get 'friends'
-  #    get 'venues_search'
-  #    get 'venue_details'
-  #  end
-  #end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
