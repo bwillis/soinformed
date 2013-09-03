@@ -6,11 +6,21 @@ module SoInformed
       def users; end
 
       def post(url, params)
-        Rails.logger.debug "foursquare [post] request to #{url}"
+        log ""
+        log "foursquare [post] request to #{url}"
+        log ""
       end
 
       def get(url, params)
-        Rails.logger.debug "foursquare [get] request to #{url}"
+        log ""
+        log "foursquare [get] request to #{url}"
+        log ""
+      end
+
+      private
+
+      def log(message)
+        Rails.logger.debug "FoursquareClient: #{message}"
       end
     end
   end

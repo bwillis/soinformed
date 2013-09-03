@@ -21,6 +21,6 @@ class FoursquareCheckinsController < ApplicationController
   end
 
   def checkin_params
-    params.permit(:checkin, :secret)
+    params.permit(:checkin, :secret, :utf8)
   end
 end

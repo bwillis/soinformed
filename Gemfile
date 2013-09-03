@@ -3,9 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
-
 gem 'unicorn'
-
 gem 'pg'
 gem 'heroku'
 gem 'twilio-ruby'
@@ -21,9 +19,12 @@ gem 'sass-rails'
 gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier'
-gem 'rails_12factor'
 gem 'memcachier'
 gem 'dalli'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'thin'
