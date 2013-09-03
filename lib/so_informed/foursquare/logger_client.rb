@@ -3,9 +3,7 @@ module SoInformed
     class LoggerClient
       def initialize(args); end
 
-      def users
-
-      end
+      def users; end
 
       def post(url, params)
         Rails.logger.debug "foursquare [post] request to #{url}"

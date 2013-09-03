@@ -11,7 +11,8 @@ describe SoInformed::SmsInformer do
     )
 
     @text_message = "Text message from abc"
-    @informer = SoInformed::SmsInformer.new("+12345678901", @text_message)
+    @sms = SoInformed::Sms::Sms.new("+12345678901", @text_message)
+    @informer = SoInformed::SmsInformer.new(@sms)
   end
 
   context "notify_all" do

@@ -4,7 +4,8 @@ class TwilioSmsController < ApplicationController
   before_filter :verify_twilio_push_secret, :only => :create
 
   def create
-    SoInformed::SmsInformer.new(sms_params[:From], sms_params[:Body]).notify_all
+    sms = SoInformed::Sms::Sms.new(sms_params[:From], sms_params[:Body])
+    SoInformed::SmsInformer.new(sms).notify_all
     head :ok
   end
 
@@ -18,6 +19,6 @@ class TwilioSmsController < ApplicationController
   end
 
   def sms_params
-    params.permit(:AccountSid, :Body, :From)
+    params.permit(:AccountSid, :Body, :From, :utf8)
   end
 end

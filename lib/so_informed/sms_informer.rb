@@ -1,15 +1,16 @@
 module SoInformed
   class SmsInformer
-    def initialize(phone_number, message)
-      phone_number.gsub!("+1", "")
-      @phone_number = phone_number; @message = message
+    def initialize(sms)
+      @sms = sms
     end
 
     def notify_all
-      contact = Contact.find_last_messaged_contact(@phone_number)
+      from = @sms.from.gsub("+1","")
+      body = @sms.body
+      contact = Contact.find_last_messaged_contact(from)
       return unless contact
       user = contact.user
-      message = SoInformed::Foursquare::CheckinCommentMessageBuilder.new(contact.name, @message)
+      message = SoInformed::Foursquare::CheckinCommentMessageBuilder.new(contact.name, body)
       checkin_action = SoInformed::Foursquare::CheckinAction.new(user.foursquare_client, contact.last_checkin_id)
       checkin_action.post(message.get_message, message.get_url)
     end

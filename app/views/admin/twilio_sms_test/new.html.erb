@@ -1,0 +1,22 @@
+<h1>Twilio Sms Test</h1>
+
+<p>
+  Simulate the Twilio sms push API with this form. Substitute any values click the push button and check the logs if you see any issues.
+</p>
+
+<%= form_tag(twilio_sms_path, :remote => true, :id => "push-test", :class => "well") do %>
+  <fieldset>
+    <div style="margin-bottom:10px;">
+
+      <label for="From">From</label>
+      <span class="help-block">This is pre populated with an existing contact</span>
+      <%= text_field_tag :From, @sms.from, :class => "form-control", :rows => 10 %>
+
+      <label for="Body">Body</label>
+      <%= text_field_tag :Body, @sms.body, :class => "form-control", :rows => 10 %>
+
+    </div>
+
+    <%= submit_tag "Send Push", :class => "btn btn-default" %>
+  </fieldset>
+<% end %>
