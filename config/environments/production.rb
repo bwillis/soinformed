@@ -54,4 +54,8 @@ SoInformed::Application.configure do
 
   config.assets.digest = true
   config.assets.compile = false
+  config.assets.initialize_on_precompile = true
+  config.action_controller.asset_host = "//s3.amazonaws.com/#{ENV['FOG_DIRECTORY']}"
+  config.assets.prefix = "/assets"
+
 end

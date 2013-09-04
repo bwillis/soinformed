@@ -21,6 +21,7 @@ gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier'
 gem 'memcachier'
 gem 'dalli'
+gem 'asset_sync'
 
 group :production do
   gem 'rails_12factor'
