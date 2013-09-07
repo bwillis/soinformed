@@ -19,24 +19,4 @@ module ApplicationHelper
     end
   end
 
-  def flash_banner
-    flash.collect do |name, msg|
-      unless msg.blank?
-        content_tag(:div, :class => "alert #{flash_class(name)}") do
-          content_tag(:a, :class => "alert-link close", :"data-dismiss"=>"alert") do
-            content_tag(:i, "", :class => "icon-remove")
-          end.html_safe + msg
-        end
-      end
-    end.join("").html_safe
-  end
-
-  def flash_class(level)
-    case level
-      when :notice then "alert alert-success"
-      when :error then "alert alert-error"
-      when :alert then "alert alert-error"
-    end
-  end
-
 end

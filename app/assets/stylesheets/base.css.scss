@@ -7,6 +7,10 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+.alert-dismissable {
+  cursor: pointer;
+}
+
 nav.navbar-default {
   background-color: $orange;
 }
