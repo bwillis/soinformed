@@ -9,9 +9,9 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819061809) do
+ActiveRecord::Schema.define(version: 20130907060858) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20130819061809) do
     t.string   "notify_state",         default: "never"
     t.datetime "notify_state_updated"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "location_display",     default: "text"
     t.integer  "message_count",        default: 0
     t.datetime "last_message_at"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20130819061809) do
   create_table "users", force: true do |t|
     t.string   "uid"
     t.string   "token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "name"
+    t.datetime "last_signed_in_at"
   end
 
 end

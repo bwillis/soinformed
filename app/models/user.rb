@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     foursquare_user ||= foursquare.users.find("self")
     uid = foursquare_user.id
     user = find_by_uid(uid) || User.new
+    user.last_signed_in_at = Time.now
     user.uid = uid
     user.token = token
     user.name = "#{foursquare_user.json["firstName"]} #{foursquare_user.json["lastName"][0]}"

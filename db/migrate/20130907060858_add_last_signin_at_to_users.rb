@@ -1,0 +1,5 @@
+class AddLastSigninAtToUsers < ActiveRecord::Migration
+  def change
+    add_column :users, :last_signed_in_at, :datetime
+  end
+end

@@ -207,6 +207,7 @@ DEPENDENCIES
   dalli
   haml
   heroku
+  heroku-api
   jquery-rails
   json
   memcachier

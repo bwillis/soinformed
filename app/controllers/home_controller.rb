@@ -2,12 +2,8 @@ class HomeController < ApplicationController
 
   skip_before_filter :ensure_authenticated_user
 
-  def index
+  def index;end
 
-  end
-
-  def privacy
-
-  end
+  def privacy;end
 
 end

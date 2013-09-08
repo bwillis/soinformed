@@ -9,6 +9,7 @@
     <th>Name</th>
     <th>Total Contacts</th>
     <th>Messages Sent</th>
+    <th>Last Signed In</th>
   </thead>
   <% @users.each do |user| %>
     <tr>
@@ -16,6 +17,7 @@
       <td><%= user.name %></td>
       <td><%= user.contacts.length %></td>
       <td><%= user.contacts.inject(0) { |sum, contact| contact.message_count + sum } %></td>
+      <td><%= time_ago_in_words(user.last_signed_in_at) + " ago" if user.last_signed_in_at %></td>
     </tr>
   <% end %>
   </tbody>

@@ -22,6 +22,7 @@ gem 'uglifier'
 gem 'memcachier'
 gem 'dalli'
 gem 'asset_sync'
+gem 'heroku-api'
 
 group :production do
   gem 'rails_12factor'
