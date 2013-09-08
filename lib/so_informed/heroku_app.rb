@@ -5,8 +5,8 @@ module SoInformed
 
     attr_reader :updated_at
 
-    def initialize(app_name, api_key, cache_updated_at)
-      super(cache_updated_at)
+    def initialize(app_name, api_key)
+      super()
       @app_name = app_name
       @api_key  = api_key
     end
