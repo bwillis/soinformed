@@ -6,10 +6,20 @@
 }
 
 @media screen and (max-width: 767px) {
-  .main {
-    padding: 0 15px 0 15px;
+  footer {
+    text-align: center;
+    .copyright {
+      width: 100%;
+    }
+    .power {
+      width: 100%;
+      margin: 20px 0 20px 0;
+    }
+    .icon-heart {
+      display: block;
+    }
   }
-  
+
   .navbar-login-message {
     float: none;
   }
@@ -24,10 +34,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .main {
-    padding: 0 15px 0 15px;
-  }
-
   .btn-notify-state {
     padding: 8px 12px;
     font-size: 15px;
