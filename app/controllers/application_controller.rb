@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  etag { SoInformed::AppFactory.get_application.updated_at }
+  etag { SoInformed::AppFactory.get_application.version }
   etag { flash }
   etag { current_user.try :last_signed_in_at }
   etag { current_user.try :id }

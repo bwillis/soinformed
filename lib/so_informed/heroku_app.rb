@@ -2,9 +2,6 @@ require 'heroku-api'
 
 module SoInformed
   class HerokuApp < BaseApp
-
-    attr_reader :updated_at
-
     def initialize(app_name, api_key)
       super()
       @app_name = app_name
