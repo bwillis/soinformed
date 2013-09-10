@@ -7,19 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "SoInformed" %></title>
     <%= csrf_meta_tags %>
-
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
     <![endif]-->
-
     <%= stylesheet_link_tag "application", :media => "all" %>
-
   </head>
   <body>
-
     <%= render :template => "shared/navbar" %>
-
     <div class="main">
       <div class="container">
         <%= flash_banner %>
@@ -35,14 +30,9 @@
             <i class="icon-heart"></i>
             <%= link_to image_tag("heroku-powered.png", :size => "88x31"), "http://heroku.com", :target => '_blank' %>
           </div>
-
         </footer>
       </div>
     </div>
-
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
   </body>
 </html>
