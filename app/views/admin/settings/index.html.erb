@@ -4,6 +4,20 @@
   These are settings only available to the administrator.
 </p>
 
+<h2>Application Properties</h2>
+
+<div class="well">
+  <dl>
+    <dt>Last updated</dt>
+    <dd><%= @application.updated_at %></dd>
+    <dt>Version</dt>
+    <dd><%= @application.version %></dd>
+    </ul>
+  </dl>
+</div>
+
+<h2>Configuration</h2>
+
 <%= form_for(:settings, :html => {:class => "well"}) do |f| %>
 
   <div class="checkbox">
