@@ -57,4 +57,5 @@ SoInformed::Application.configure do
   config.action_controller.asset_host = "//s3.amazonaws.com/#{ENV['FOG_DIRECTORY']}"
   config.assets.prefix = "/assets"
 
+  config.session_store = :dalli_store
 end
