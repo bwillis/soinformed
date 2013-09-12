@@ -1,5 +1,11 @@
 module ApplicationHelper
-  
+
+  def sprite_link(name, link, opts)
+    opts[:class] ||= ""
+    opts[:class] << " #{name}"
+    link_to("", link, opts).html_safe
+  end
+
   def sitemap(text)
     "<h2>#{link_to('Examples', examples_path)} > #{text}</h2>".html_safe
   end

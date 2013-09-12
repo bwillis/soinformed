@@ -1,3 +1,7 @@
+$logos-sprite-dimensions:true;
+@import "logos/*.png";
+@include all-logos-sprites;
+
 h1, h2, h3, h4, h5 {
   color: $orange;
 }
@@ -9,6 +13,10 @@ h1, h2, h3, h4, h5 {
 
 .alert-dismissable {
   cursor: pointer;
+}
+
+.logos-sprite {
+  display:inline-block;
 }
 
 nav.navbar-default {

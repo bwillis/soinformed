@@ -15,8 +15,10 @@ footer {
   color: darken($beige, 30);
   height: 40px;
 
-  .power .icon-heart {
-    margin: 15px;
+  .icon-heart {
+    margin: 5px;
+    position:relative;
+    top: -8px;
   }
 
   .copyright {

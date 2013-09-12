@@ -6,3 +6,4 @@ config/heroku_env.rb
 .idea/*
 .sass-cache
 public/assets/
+app/assets/images/logos-*
