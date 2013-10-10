@@ -152,13 +152,6 @@ $iphone-width: 210*1.5px;
   }
 }
 
-@mixin rotate($deg) {
-  -webkit-transform: rotate($deg);
-  -moz-transform: rotate($deg);
-  -ms-transform: rotate($deg);
-  -o-transform: rotate($deg);
-}
-
 .home-callout {
   background: #FFF;
   border-radius: 5px;
@@ -259,4 +252,12 @@ $iphone-width: 210*1.5px;
       }
     }
   }
+}
+
+.btn-login {
+  background: transparent image-url('foursquare-connect.png') scroll no-repeat 0 0;
+  background-size: 100%;
+  width: 300px;
+  height: 48px;
+  max-width: 100%;
 }

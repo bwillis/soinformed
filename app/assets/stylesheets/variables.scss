@@ -1,28 +1,6 @@
 $font-path: "../assets";
 $fontAwesomePath: $font-path;
 
-@mixin animation($animation) {
-  -webkit-animation: $animation;
-  -moz-animation:    $animation;
-  -o-animation:      $animation;
-  animation:         $animation;
-}
-
-@mixin keyframes($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-ms-keyframes #{$name} {
-    @content;
-  }
-  @keyframes #{$name} {
-    @content;
-  }
-}
-
 $grapefruit: #FF8562;
 $orange: #FFA861;
 $beige: #FEF5E4;

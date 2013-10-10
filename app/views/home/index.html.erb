@@ -52,8 +52,8 @@
 </div>
 
 <% if !current_user %>
-  <div class="main-login-button">
-    <%= link_to image_tag("foursquare-connect.png", :size => "300x48"), authentication_path %>
+  <div class="main-login-button text-center">
+    <%= link_to "", authentication_path, :class => "btn btn-login" %>
   </div>
 <% end %>
 
