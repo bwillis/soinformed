@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration>
+  <CORSRule>
+    <AllowedOrigin>https://soinformed.herokuapp.com</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedHeader>Content-*</AllowedHeader>
+    <AllowedHeader>Host</AllowedHeader>
+    <AllowedHeader>x-amz-*</AllowedHeader>
+  </CORSRule>
+</CORSConfiguration>
