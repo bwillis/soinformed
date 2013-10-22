@@ -22,12 +22,6 @@ module SoInformed
       # send the sms to the contacts
       send_sms(build_sms_messages)
 
-      # send a reply back to the users checkin so they
-      # know they've mentioned someone
-      if reply = build_foursquare_reply
-        send_foursquare_checkin_reply(reply)
-      end
-
       # mark contacts as messaged
       @notifiable_contacts.mark_all_notified!(@checkin.id)
     end
@@ -42,11 +36,6 @@ module SoInformed
       end
     end
 
-    def send_foursquare_checkin_reply(message)
-      checkin_action = SoInformed::Foursquare::CheckinAction.new(@user.foursquare_client, @checkin.id)
-      checkin_action.reply(message, "https://soinformed.heroku.com/contacts")
-    end
-
     # build message for all contacts location displays
     def build_sms_messages
       @notifiable_contacts.location_displays.inject({}) do |hash, type|
@@ -54,12 +43,6 @@ module SoInformed
         hash[type] = message.get_message
         hash
       end
-    end
-
-    def build_foursquare_reply
-      names = @notifiable_contacts.notify_by_mention_names
-      return false if names.empty?
-      "#{@user.name} mentioned #{names.to_sentence} to tell them about this checkin!"
     end
   end
 end
