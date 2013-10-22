@@ -28,11 +28,6 @@ describe SoInformed::CheckinInformer do
       @informer.notify_all
     end
 
-    it "should post to foursquare" do
-      SoInformed::Foursquare::MockClient.any_instance.should_receive(:post)
-      @informer.notify_all
-    end
-
     it "should mark the contacts as notified" do
       Timecop.freeze(Time.now) do
         @informer.notify_all

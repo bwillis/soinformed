@@ -3,7 +3,7 @@ module SoInformed
     class CheckinData
 
       def self.object(user_id="1", shout="This is a soinformed test!")
-        Checkin.new(self.default(user_id, shout))
+        CheckinCompact.new(self.default(user_id, shout))
       end
 
       def self.default(user_id="1", shout="This is a soinformed test!")
