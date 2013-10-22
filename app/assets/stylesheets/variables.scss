@@ -10,6 +10,8 @@ $blue: #64C6DA;
 $watermelon: #F56991;
 $sherbert: #FFC48C;
 
+$label-color: #777;
+
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
@@ -25,6 +27,9 @@ $navbar-default-link-active-bg:            lighten($orange, 20);
 $navbar-default-brand-hover-color:         lighten($orange, 25);
 $navbar-default-brand-hover-bg:            transparent;
 
+$navbar-default-toggle-border-color: #fff;
+$navbar-default-toggle-icon-bar-bg: #fff;
+
 $component-active-bg:                      $orange;
 
 
@@ -35,3 +40,6 @@ $btn-default-color: #FFF;
 $btn-default-border: lighten($blue, 10);
 
 $btn-primary-bg: darken($blue, 15);
+
+$panel-bg: lighten($orange, 30);
+$panel-inner-border: lighten($orange, 20);

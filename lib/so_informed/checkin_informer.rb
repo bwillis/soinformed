@@ -9,6 +9,9 @@ module SoInformed
       @checkin = checkin
       if @user = User.find_by_uid(@checkin.user_id)
         @notifiable_contacts = @user.contacts.notifiable(@checkin.shout)
+        if needs_venue?
+          @venue = @user.foursquare_client.venues.find(@checkin.venue_id)
+        end
       else
         Rails.logger.warn("No user found for #{@checkin.user_id}")
       end
@@ -39,10 +42,14 @@ module SoInformed
     # build message for all contacts location displays
     def build_sms_messages
       @notifiable_contacts.location_displays.inject({}) do |hash, type|
-        message = Foursquare::CheckinMessageBuilder.from_checkin(@checkin, type)
+        message = Foursquare::CheckinMessageBuilder.from_checkin(@checkin, @venue, type)
         hash[type] = message.get_message
         hash
       end
+    end
+
+    def needs_venue?
+      @notifiable_contacts.location_displays.include? :link
     end
   end
 end

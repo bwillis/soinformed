@@ -20,4 +20,7 @@ SoInformed::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   config.eager_load = false
+
+  config.foursquare_client = :logger
+  #config.foursquare_client = :real
 end

@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
 
   def index
-    current_user.contacts.build
+    current_user.contacts.build(:location_display => current_user.default_location_display)
     @contacts = current_user.contacts
     fresh_when(@contacts)
   end

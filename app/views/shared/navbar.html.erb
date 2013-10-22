@@ -1,35 +1,38 @@
 <nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <%= link_to image_tag("so-informed.png", :size => "156x30"), root_path, :class => "navbar-brand" %>
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to image_tag("so-informed.png", :size => "156x30"), root_path, :class => "navbar-brand" %>
+      <% if current_user %>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <% end %>
+    </div>
+
     <% if current_user %>
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+    <div class="collapse navbar-collapse navbar-menu">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Profile", profile_path %></li>
+        <li><%= link_to "Contacts", contacts_path %></li>
+        <% if admin? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Settings", admin_settings_path %></li>
+              <li><%= link_to "Foursquare Push Test", new_admin_foursquare_checkins_test_path %></li>
+              <li><%= link_to "Twilio Push Test", new_admin_twilio_sms_test_path %></li>
+              <li><%= link_to "Users", admin_users_path %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+
+      <p class="navbar-text navbar-login-message">
+        Welcome <%= current_user.name %>! (<%= link_to "not you?", session_path, :method => :delete, :class => "navbar-link" %>)
+      </p>
+    </div>
     <% end %>
   </div>
-
-  <% if current_user %>
-  <div class="collapse navbar-collapse navbar-menu">
-    <ul class="nav navbar-nav">
-      <li><%= link_to "Your Contacts", contacts_path %></li>
-      <% if admin? %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Settings", admin_settings_path %></li>
-            <li><%= link_to "Foursquare Push Test", new_admin_foursquare_checkins_test_path %></li>
-            <li><%= link_to "Twilio Push Test", new_admin_twilio_sms_test_path %></li>
-            <li><%= link_to "Users", admin_users_path %></li>
-          </ul>
-        </li>
-      <% end %>
-    </ul>
-
-    <p class="navbar-text navbar-login-message">
-      Welcome <%= current_user.name %>! (<%= link_to "not you?", session_path, :method => :delete, :class => "navbar-link" %>)
-    </p>
-  </div>
-  <% end %>
 </nav>

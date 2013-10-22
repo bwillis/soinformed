@@ -14,7 +14,7 @@ module SoInformed
         "#{message} Reply to comment"
       end
 
-      def self.from_checkin(checkin, location_display=:text)
+      def self.from_checkin(checkin, venue, location_display=:text)
         message = Foursquare::CheckinMessageBuilder.new(checkin.username, checkin.venue_name)
         message.comment = checkin.shout if checkin.has_shout?
         if checkin.has_address?
@@ -22,7 +22,7 @@ module SoInformed
             when :text
               message.address = checkin.address
             when :link
-              message.address = "http://google.com"
+              message.address = venue.short_url
           end
         end
         message

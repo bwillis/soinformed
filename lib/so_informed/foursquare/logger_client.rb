@@ -5,6 +5,8 @@ module SoInformed
 
       def users; end
 
+      def venues; end
+
       def post(url, params)
         log ""
         log "foursquare [post] request to #{url}"

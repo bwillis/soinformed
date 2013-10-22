@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <p class="lead">
+      <strong>Change</strong> your profile settings or delete your account here.
+    </p>
+    <h3 class="section-heading">Edit Profile</h3>
+
+    <%= form_for(@user, :url => users_path, :method => :patch, :html => {:class => "form-contact well"}) do |f| %>
+
+      <%= errors_helper @user %>
+
+      <div class="input-group">
+        <span class="input-group-addon input-lg"><i class="icon-user"></i></span>
+        <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Your name" %>
+      </div>
+
+      <div class="panel-group form-group">
+        <div class="panel">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse">
+                More options
+              </a>
+            </h4>
+          </div>
+          <div id="collapse" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="input-group">
+                <label data-toggle="popover" data-container="body" data-placement="top" data-content="None includes only the venue name, the text option includes the address in words and the link will include a Foursquare url about the location.">
+                  How to include your location
+                  <i class="icon-question-sign"></i>
+                </label>
+                <%= select_icon_button_group "user[default_location_display]", UsersHelper::LOCATION_DISPLAY_BUTTONS, @user.default_location_display %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <%= f.submit "Save", :class => "btn btn-lg btn-primary btn-block" %>
+
+      <%= link_to "Delete So Informed Account", users_path, :class => "btn btn-large btn-link btn-block", :method => :delete, data: {confirm: 'This will delete your account and contacts. Are you sure?'} %>
+
+    <% end %>
+
+  </div>
+</div>

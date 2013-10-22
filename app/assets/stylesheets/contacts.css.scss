@@ -19,13 +19,7 @@
   }
   &.active {
     color: #fff;
-    .icon-ban-circle {
-     color: $sherbert;
-    }
-    .icon-comment {
-      color: $sherbert;
-    }
-    .icon-time {
+    .icon-ban-circle, .icon-comment, .icon-map-marker, .icon-time {
       color: $sherbert;
     }
     .icon-heart {

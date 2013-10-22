@@ -32,8 +32,16 @@ nav.navbar-default {
   color: lighten($orange, 20);
 }
 
+.panel-title > a {
+  display: block;
+}
+
 .lead {
   font-size: 21px;
+}
+
+label {
+  color: $label-color;
 }
 
 $iphone-width: 210*1.5px;

@@ -1,7 +1,7 @@
 SoInformed::Application.routes.draw do
 
+  resource :users
   resources :contacts
-  resources :phone_numbers
   resources :foursquare_checkins, :only => [:create]
   resources :twilio_sms, :only => [:create]
 
@@ -21,7 +21,8 @@ SoInformed::Application.routes.draw do
   get "privacy" => "home#privacy"
   get "about" => "home#about"
   get "edit" => "home#edit"
-  
+  get "profile" => "users#edit"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
