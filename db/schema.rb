@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907060858) do
+ActiveRecord::Schema.define(version: 20130919031315) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(version: 20130907060858) do
   create_table "users", force: true do |t|
     t.string   "uid"
     t.string   "token"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "name"
     t.datetime "last_signed_in_at"
+    t.string   "default_location_display", default: "text"
   end
 
 end
