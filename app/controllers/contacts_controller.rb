@@ -35,10 +35,6 @@ class ContactsController < ApplicationController
 
   private
 
-    def model_alert(model)
-      "Please fix these issues and try again: <ul><li>#{model.errors.full_messages.join("</li><li>")}</li></ul>".html_safe
-    end
-
     def contact_params
       params.require(:contact).permit(:phone_number, :name, :notify_state, :location_display)
     end

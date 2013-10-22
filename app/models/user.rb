@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :contacts, -> { order "updated_at DESC" }
 
+  validates_presence_of :name
+
   def self.find_or_create_by_foursquare_user(token)
     foursquare = Foursquare::Base.new(token)
     foursquare_user ||= foursquare.users.find("self")
@@ -10,7 +12,9 @@ class User < ActiveRecord::Base
     user.last_signed_in_at = Time.now
     user.uid = uid
     user.token = token
-    user.name = "#{foursquare_user.json["firstName"]} #{foursquare_user.json["lastName"][0]}"
+    unless user.name
+      user.name = "#{foursquare_user.json["firstName"]} #{foursquare_user.json["lastName"][0]}"
+    end
     user.save!
     user
   end
