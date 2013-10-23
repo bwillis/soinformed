@@ -14,8 +14,8 @@ module SoInformed
         "#{message} Reply to comment"
       end
 
-      def self.from_checkin(checkin, venue, location_display=:text)
-        message = Foursquare::CheckinMessageBuilder.new(checkin.username, checkin.venue_name)
+      def self.from_checkin(username, checkin, venue, location_display=:text)
+        message = Foursquare::CheckinMessageBuilder.new(username, checkin.venue_name)
         message.comment = checkin.shout if checkin.has_shout?
         if checkin.has_address?
           case location_display
