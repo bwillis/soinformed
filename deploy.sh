@@ -1,4 +1,4 @@
 #!/bin/sh
 
 git push heroku master
-heroku run rake db:migrate assets:precompile
+heroku run rake db:migrate
