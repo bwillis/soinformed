@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe SoInformed::CheckinInformer do
   before do
-    @user = User.create(:name => "test", :uid => "test")
+    @user = User.create(:name => "Jimmy", :uid => "test")
     @contact_a = @user.contacts.create(:name => "A", :phone_number => "1111111111", :notify_state => :always)
     @contact_b = @user.contacts.create(:name => "B", :phone_number => "2222222222", :notify_state => :only_mention)
     @contact_c = @user.contacts.create(:name => "C", :phone_number => "3333333333", :notify_state => :never)
@@ -21,7 +21,7 @@ describe SoInformed::CheckinInformer do
   context "notify_all" do
     it "should notify two contacts via sms" do
       SoInformed::Sms::MockClient.any_instance.should_receive(:process).with do |message, numbers|
-        message.should == "Jimmy Foursquare checked-in at foursquare HQ (East Village) Hey #B what's up? Reply to comment"
+        message.should == "Jimmy checked-in at foursquare HQ (East Village) Hey #B what's up? Reply to comment"
         numbers.should include("1111111111","2222222222")
         true
       end
