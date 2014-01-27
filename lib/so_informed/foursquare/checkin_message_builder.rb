@@ -1,32 +1,27 @@
+require './lib/so_informed/message_builder'
+
 module SoInformed
   module Foursquare
     class CheckinMessageBuilder
-      attr_writer :address, :comment
 
-      def initialize(name, location)
-        @name = name; @location = location
-      end
-
-      def get_message
-        message = "#{@name} checked-in at #{@location}"
-        message << " (#{@address})" if @address
-        message << " #{@comment}" if @comment
-        "#{message} Reply to comment"
-      end
+      SMS_MAX_LENGTH = 160
+      REPLY_TEXT = 'Reply to comment'
+      CHECKED_IN_TEXT = ['checked-in at', 'is at']
 
       def self.from_checkin(username, checkin, venue, location_display=:text)
-        message = Foursquare::CheckinMessageBuilder.new(username, checkin.venue_name)
-        message.comment = checkin.shout if checkin.has_shout?
+        builder = SoInformed::MessageBuilder.new
+        builder.add_spaces = true
+        builder.add username
+        builder.add_with_fallback *CHECKED_IN_TEXT
+        builder.add checkin.venue_name
         if checkin.has_address?
-          case location_display
-            when :text
-              message.address = checkin.address
-            when :link
-              message.address = venue.short_url
-          end
+          builder.add "(#{location_display == :text ? checkin.address : venue.short_url})"
         end
-        message
+        builder.add checkin.shout if checkin.has_shout?
+        builder.add_optional REPLY_TEXT
+        builder.message SMS_MAX_LENGTH
       end
+
     end
   end
 end

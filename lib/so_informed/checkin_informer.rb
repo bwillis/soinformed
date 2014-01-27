@@ -43,7 +43,7 @@ module SoInformed
     def build_sms_messages
       @notifiable_contacts.location_displays.inject({}) do |hash, type|
         message = Foursquare::CheckinMessageBuilder.from_checkin(@user.name, @checkin, @venue, type)
-        hash[type] = message.get_message
+        hash[type] = message
         hash
       end
     end
