@@ -46,6 +46,10 @@ module SoInformed
       add ' '
     end
 
+    def add_ellipsis(text, min_length=text.length/2)
+      add_with_fallback text, text.slice(0..min_length) + '...'
+    end
+
     def message(desired_size=max_size)
       if max_size > desired_size
         message_types = %w(substitute_message fallback_text_message required_message shortest_message)

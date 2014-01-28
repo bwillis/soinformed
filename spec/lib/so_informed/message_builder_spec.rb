@@ -84,4 +84,12 @@ describe SoInformed::MessageBuilder do
       it { subject.message(34).should eq 'San Francisco Int\'l Airport' }
     end
   end
+
+  describe '#add_ellipsis' do
+    before do
+      subject.add_ellipsis ' This is some really long text'
+    end
+
+    it { subject.message(35).should eq 'Hello world! This is some re...' }
+  end
 end
