@@ -6,13 +6,12 @@ module SoInformed
 
       SMS_MAX_LENGTH = 160
       REPLY_TEXT = 'Reply to comment'
-      CHECKED_IN_TEXT = ['checked-in at', 'is at']
 
       def self.from_checkin(username, checkin, venue, location_display=:text)
         builder = SoInformed::MessageBuilder.new
         builder.add_spaces = true
         builder.add username
-        builder.add_with_fallback *CHECKED_IN_TEXT
+        builder.add 'is at'
         builder.add checkin.venue_name
         if checkin.has_address?
           builder.add "(#{location_display == :text ? checkin.address : venue.short_url})"
