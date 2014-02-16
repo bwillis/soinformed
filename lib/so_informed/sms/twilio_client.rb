@@ -6,7 +6,7 @@ module SoInformed
         numbers.each do |number|
           begin
             client.account.sms.messages.create(
-                :from => Settings.twilio_from_number,
+                :from => Rails.application.secrets.twilio_from_number,
                 :to   => '+1' + number,
                 :body => message
             )
@@ -19,7 +19,10 @@ module SoInformed
       private
 
       def client
-        @client ||= Twilio::REST::Client.new(Settings.twilio_app_sid, Settings.twilio_secret)
+        @client ||= Twilio::REST::Client.new(
+            Rails.application.secrets.twilio_app_sid,
+            Rails.application.secrets.twilio_secret
+        )
       end
     end
   end

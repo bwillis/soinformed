@@ -12,7 +12,7 @@ class TwilioSmsController < ApplicationController
   private
 
   def verify_twilio_push_secret
-    if sms_params[:AccountSid] != Settings.twilio_app_sid && !Rails.env.development?
+    if sms_params[:AccountSid] != Rails.application.secrets.twilio_app_sid && !Rails.env.development?
       Rails.logger.warn("Invalid twilio push secret request.")
       render :file => "public/401.html", :status => :unauthorized and return
     end

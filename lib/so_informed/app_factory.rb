@@ -10,8 +10,8 @@ module SoInformed
                          SoInformed::DevApp.new
                        when :production
                          SoInformed::HerokuApp.new(
-                             ENV["HEROKU_APP_NAME"],
-                             ENV["HEROKU_API_KEY"]
+                             Rails.application.secrets.heroku_app_name,
+                             Rails.application.secrets.heroku_app_key
                          )
                        else
                          raise "No application defined for rails environment #{Rails.env}"
