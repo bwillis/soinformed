@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/groupme/quimby.git
+  revision: c6c0592b893eff21316143076a058093d2169430
+  specs:
+    quimby (0.4.5)
+      json
+      typhoeus
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -105,9 +113,6 @@ GEM
     polyglot (0.3.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
-    quimby (0.4.5)
-      json
-      typhoeus
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -212,7 +217,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   quiet_assets
-  quimby
+  quimby!
   rails (= 4.1.0.beta1)
   rails_12factor
   rspec
