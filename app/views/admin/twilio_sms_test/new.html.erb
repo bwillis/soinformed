@@ -15,6 +15,9 @@
       <label for="Body">Body</label>
       <%= text_field_tag :Body, @sms.body, :class => "form-control", :rows => 10 %>
 
+      <label for="From">Account SID</label>
+      <%= password_field_tag :AccountSid, Rails.application.secrets.twilio_app_sid, :class => "form-control", :rows => 10 %>
+
     </div>
 
     <%= submit_tag "Send Push", :class => "btn btn-default" %>

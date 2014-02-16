@@ -2,7 +2,7 @@ module SoInformed
   module Sms
     class TwilioClient
       def process(message, numbers)
-        numbers = Array.wrap(numbers) unless numbers.is_a?(Array)
+        numbers = Array.wrap(numbers)
         numbers.each do |number|
           begin
             client.account.sms.messages.create(
