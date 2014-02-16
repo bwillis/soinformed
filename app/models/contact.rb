@@ -15,7 +15,7 @@ class Contact < ActiveRecord::Base
   before_save :update_notify_state_time, :if => :notify_state_changed?
 
   def self.notifiable(message)
-    contacts = where("notify_state != ?", :never).keep_if do |contact|
+    contacts = where("notify_state != ?", :never).to_a.keep_if do |contact|
       contact.should_notify?(message)
     end
     Contacts.new(contacts)
