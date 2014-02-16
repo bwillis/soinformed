@@ -6,7 +6,7 @@ class TwilioSmsController < ApplicationController
   def create
     sms = SoInformed::Sms::Sms.new(sms_params[:From], sms_params[:Body])
     SoInformed::SmsInformer.new(sms).notify_all
-    head :ok
+    render :xml => '<?xml version="1.0" encoding="UTF-8"?><Response></Response>'
   end
 
   private
