@@ -14,7 +14,7 @@ class FoursquareCheckinsController < ApplicationController
   private
 
   def verify_foursquare_push_secret
-    if checkin_params[:secret] != Rails.application.secrets.app_push_secret && !Rails.env.development?
+    if checkin_params[:secret] != Rails.application.secrets.foursquare_app_push_secret && !Rails.env.development?
       Rails.logger.warn("Invalid foursquare push secret request.")
       render :file => "public/401.html", :status => :unauthorized and return
     end
