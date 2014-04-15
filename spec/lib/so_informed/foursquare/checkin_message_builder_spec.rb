@@ -9,6 +9,6 @@ describe SoInformed::Foursquare::CheckinMessageBuilder do
     SoInformed::Foursquare::CheckinMessageBuilder.from_checkin(username, checkin, venue, location_display)
   end
 
-  it { should eq 'Ben W checked-in at Willis Greenhouses (1365 Lawrenceville, New Jersey) Reply to comment' }
+  it { should eq 'Ben W is at Willis Greenhouses (1365 Lawrenceville, New Jersey) Reply to comment' }
 
 end

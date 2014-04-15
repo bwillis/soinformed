@@ -37,7 +37,7 @@ describe SoInformed::SmsInformer do
       end
 
       it "notifies the user who checked in last" do
-        SoInformed::Foursquare::ClientFactory.should_receive(:get_client).with("bens-token").and_call_original
+        SoInformed::Foursquare::ClientFactory.should_receive(:get_client).with({:access_token=>"bens-token"}).and_call_original
         @informer.notify_all
       end
     end

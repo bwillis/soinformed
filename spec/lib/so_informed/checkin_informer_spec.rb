@@ -21,7 +21,7 @@ describe SoInformed::CheckinInformer do
   context "notify_all" do
     it "should notify two contacts via sms" do
       SoInformed::Sms::MockClient.any_instance.should_receive(:process).with do |message, numbers|
-        message.should == "Jimmy checked-in at foursquare HQ (East Village) Hey #B what's up? Reply to comment"
+        message.should == "Jimmy is at foursquare HQ (East Village) Hey #B what's up? Reply to comment"
         numbers.should include("1111111111","2222222222")
         true
       end
