@@ -48,7 +48,7 @@ SoInformed::Application.configure do
   config.force_ssl = true
 
   config.eager_load = true
-  config.assets.digest = false
+  config.assets.digest = true
   config.assets.compile = false
   config.assets.initialize_on_precompile = true
   config.action_controller.asset_host = "//s3.amazonaws.com/#{Rails.application.secrets.fog_directory}"
