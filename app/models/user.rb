@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name
 
   def self.find_or_create_by_foursquare_user(token)
-    foursquare = Foursquare::Base.new(token)
+    foursquare = Foursquare::Base.new(access_token: token)
     foursquare_user ||= foursquare.users.find("self")
     uid = foursquare_user.id
     user = find_by_uid(uid) || User.new
