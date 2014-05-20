@@ -1,16 +1,16 @@
 module FlashHelper
 
-  FLASH_CLASS = {
+  FLASH_CLASS = HashWithIndifferentAccess.new({
       :notice => "alert-success",
       :error  => "alert-info",
       :alert  => "alert-danger"
-  }
+  })
 
-  FLASH_PREFIX = {
+  FLASH_PREFIX = HashWithIndifferentAccess.new({
       :notice => "Hey!",
       :error  => "Whoops!",
       :alert  => "Uh Oh!"
-  }
+  })
 
   def flash_banner
     flash.collect do |name, msg|
