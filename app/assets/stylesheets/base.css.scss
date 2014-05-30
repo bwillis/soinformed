@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5 {
 nav.navbar-default {
   background-color: $orange;
 }
+
 .navbar-brand {
   margin: 9px;
   display:block;
@@ -30,6 +31,7 @@ nav.navbar-default {
   height: 30px;
   width: 156px;
 }
+
 .navbar-default .navbar-text {
   color: lighten($orange, 20);
 }
