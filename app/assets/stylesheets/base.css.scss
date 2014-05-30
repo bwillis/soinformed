@@ -23,10 +23,12 @@ nav.navbar-default {
   background-color: $orange;
 }
 .navbar-brand {
-  padding: 9px;
-  margin-left:auto;
-  margin-right:auto;
+  margin: 9px;
   display:block;
+  background-image: inline-image('so-informed.png');
+  background-size: 100%;
+  height: 30px;
+  width: 156px;
 }
 .navbar-default .navbar-text {
   color: lighten($orange, 20);
