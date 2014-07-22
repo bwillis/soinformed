@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   skip_before_filter :ensure_authenticated_user, :only => :callback
 
   def callback
-    user_session.authenticate(auth_params[:code])
+    user_session.authenticate(auth_params[:code], callback_session_url)
     redirect_to contacts_path
   end
 

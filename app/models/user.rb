@@ -4,10 +4,16 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name
 
-  def self.find_or_create_by_foursquare_user(token)
-    foursquare = Foursquare::Base.new(access_token: token)
-    foursquare_user ||= foursquare.users.find("self")
-    uid = foursquare_user.id
+  def self.find_or_create_by_foursquare_user(code, url)
+    foursquare = Foursquare::Base.new(
+        client_id:     Rails.application.secrets.foursquare_app_id,
+        client_secret: Rails.application.secrets.foursquare_app_secret
+    )
+    token = foursquare.access_token(params["code"], url)
+
+    client_foursquare = SoInformed::Foursquare::ClientFactory.get_client(access_token: token)
+    foursquare_user ||= client_foursquare.users.find("self")
+    uid = client_foursquare.id
     user = find_by_uid(uid) || User.new
     user.last_signed_in_at = Time.now
     user.uid = uid
